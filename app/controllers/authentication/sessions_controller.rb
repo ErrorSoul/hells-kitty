@@ -10,6 +10,6 @@ class Authentication::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(_resource_or_scope)
-    new_user_session_url
+    new_admin_session_url
   end
 end

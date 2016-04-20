@@ -10,5 +10,4 @@
 //= require_tree ./factories
 
 
-
 //= require bootstrap
