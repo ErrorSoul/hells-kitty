@@ -1,0 +1,7 @@
+ru:
+  email: 'Email'
+  password: 'Пароль'
+  password_confirmation: 'Подтверждение пароля'
+  login: 'Войти'
+  remember_me: 'Запомнить меня'
+  sign_out: "Выйти"

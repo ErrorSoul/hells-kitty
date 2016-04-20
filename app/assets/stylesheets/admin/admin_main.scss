@@ -1,0 +1,137 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$hell_main_color: #9BA477;
+$hell_red: #EC000E;
+
+.css-form input.ng-invalid.ng-touched {
+    border: 2px solid  $hell_red;
+  }
+
+  .css-form input.ng-valid.ng-touched {
+    border: 2px solid $hell_main_color;
+  }
+
+.css-form textarea.ng-invalid.ng-touched {
+    border: 2px solid $hell_red;
+  }
+
+  .css-form textarea.ng-valid.ng-touched {
+    border: 2px solid $hell_main_color;
+  }
+
+.btn:focus,.btn:active {
+   outline: none !important;
+   }
+
+.form-control:focus {
+ border-color: #FF0000;
+ box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+
+@mixin center-block {
+  float:none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-block {
+  @include center-block;
+}
+
+
+.large-input {
+  height: 60px;
+  border-radius: 0;
+
+  }
+
+.btn-sign-in {
+  height: 60px;
+  border-radius: 0;
+  background-color: #21211F ;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  &:hover {
+    color: white;
+    }
+  &:active {
+    color: $hell_red;
+    }
+}
+
+
+.logo-navbar {
+  padding-top: 5px;
+}
+
+.container-under {
+  margin-top: 100px;
+  }
+
+
+.btn {
+  border-radius: 0;
+  border-size: 3px;
+  border-width: 5px;
+  }
+
+.form-actions {
+  .btn-block-left,
+  .btn-block-right{
+    @extend .btn-block;
+    margin-top: 5px;
+    width: 49%;
+    }
+
+  .btn-block-left{
+    @extend .pull-left;
+    }
+
+  .btn-block-right{
+    @extend .pull-right;
+    }
+
+
+}
+
+.panel.panel-default {
+  border-radius: 0;
+  border-width: 5px;
+  }
+
+.required:after {
+  color: red;
+  content: ' *';
+  }
+
+
+.form-control {
+  border-radius: 0;
+  height: 60px;
+  }
+
+.image-block > img {
+  width: 100%;
+  heigth: auto;
+  }
+
+#div > .alert.alert-danger {
+  background-color: #AFA8A8;
+  border-color: #AFA8A8;
+  color: #F5F4F4;
+}
+
+.paginator {padding: 20px 0 30px;margin: 0 auto;}
+  .paginator ul {display: block;list-style: none; text-align: center;}
+  .paginator ul li {display: inline-block;width: 25px;height: 25px;border: 1px solid #cdcdcd;border-radius: 100%;margin: 0 7px;text-align: center;vertical-align: middle;background: #ffffff;}
+  .paginator ul li.active {background: #cdcdcd;}
+  .paginator ul li a {display: block;text-align: center;height: 25px;line-height: 25px;font-size: 14px;text-decoration: none;color: #cdcdcd;}
+  .paginator ul li.active a {color: #ffffff;}
+.admin-image {
+  width: 320px;
+  height: 280px;
+  }
