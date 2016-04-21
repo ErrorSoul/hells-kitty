@@ -1,1 +1,1 @@
-angular.module('admin', ["templates"])
+angular.module('admin', ["templates", "ui.bootstrap"])

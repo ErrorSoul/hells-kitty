@@ -50,6 +50,7 @@ GEM
       railties (>= 4.2, < 6)
       sprockets (~> 3.0)
       tilt
+    angular-ui-bootstrap-rails (0.14.3)
     angularjs-rails (1.5.0)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
@@ -408,6 +409,7 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails-templates
+  angular-ui-bootstrap-rails
   angularjs-rails
   annotate (~> 2.6.5)
   awesome_nested_set

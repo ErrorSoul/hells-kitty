@@ -5,6 +5,9 @@
 $hell_main_color: #9BA477;
 $hell_red: #EC000E;
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 .css-form input.ng-invalid.ng-touched {
     border: 2px solid  $hell_red;
   }
@@ -154,13 +157,13 @@ $hell_red: #EC000E;
 .category-panel.low-nested {
   margin-left: 10%;
   }
-.category-panel.low-nested:last-child {
-  border-bottom: 1px solid gray;
-  }
+
 .category-panel.low-nested:first-child {
   border-bottom: 0px solid gray;
   }
-
+.category-panel.low-nested:last-child {
+  border-bottom: 1px solid gray;
+  }
 
 
 .child-panel {
@@ -187,6 +190,9 @@ $hell_red: #EC000E;
   border-bottom: 0px solid gray;
 }
 
+input#exampleInputName2 {
+  width: 250px;
+  }
 
 
 .paginator {padding: 20px 0 30px;margin: 0 auto;}

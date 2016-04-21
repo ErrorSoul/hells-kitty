@@ -23,6 +23,7 @@ gem 'slim'
 # Angular
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
+gem 'angular-ui-bootstrap-rails'
 
 # Devise
 gem 'devise'

@@ -1,6 +1,10 @@
 
 
-.row(ng-controller="CategoriesController")
+.row.ng-cloak(ng-controller="CategoriesController")
+  .col-md-6.center-block(ng-if="message")
+    .alert.alert-success
+      p.bg-success {{message}}
+
   .col-md-12
     .page-header
       h1.clearfix
@@ -10,47 +14,45 @@
 
           button.btn.btn-default(ng-click="expandAll()") Раскрыть все
 
-
-
     .col-md-9.center-block
       .div[ng-repeat='category in categories']
-        .col-md-10.category-panel.clearfix
-          .col-md-2
+        .col-md-11.category-panel.clearfix
+          .col-md-1
             .button.btn-default.btn(ng-click='collapsed(category)')
               i.fa.fa-arrow-right[
                 ng-class="{true: 'fa-arrow-right', false: 'fa-arrow-down'}[!!category.collapse]"
               ]
 
-          .col-md-6
+          .col-md-8
             p.category-name {{category.name}}
-          .col-md-4.pull-right
-            button.btn.btn-danger
+          .col-md-3.pull-right
+            button.btn.btn-danger(ng-click="createCategory(category)")
               i.fa.fa-plus
-            button.btn.btn-warning
+            button.btn.btn-warning(ng-click="editCategory(category)")
               = fa_icon 'pencil'
-        .col-md-10.child-panel(ng-hide="isCollapsed(category)")
+        .col-md-11.child-panel(ng-hide="isCollapsed(category)")
           .div(ng-repeat="child in category.children")
-            .col-md-10.category-panel.nested.clearfix
-              .col-md-2
+            .col-md-11.category-panel.nested.clearfix
+              .col-md-1
                 .button.btn-default.btn(ng-click="collapsed(child)")
                   i.fa.fa-arrow-right[
                     ng-class="{true: 'fa-arrow-right', false: 'fa-arrow-down'}[!!child.collapse]"
                   ]
-              .col-md-6
+              .col-md-7
                 p.nested-text {{child.name}}
               .col-md-4.pull-right
-                button.btn.btn-danger
+                button.btn.btn-danger(ng-click="createCategory(child)")
                   i.fa.fa-plus
-                button.btn.btn-warning
+                button.btn.btn-warning(ng-click="editCategory(child)")
                   = fa_icon 'pencil'
-                button.btn.btn-primary
+                button.btn.btn-primary(ng-click="deleteCategory(category, child)")
                   = fa_icon 'trash'
-            .col-md-10.child-panel(ng-hide="isCollapsed(child)")
-              .col-md-10.category-panel.low-nested.clearfix(ng-repeat="child_nested in child.children")
-                .col-md-6
+            .col-md-11.child-panel(ng-hide="isCollapsed(child)")
+              .col-md-11.category-panel.low-nested.clearfix(ng-repeat="child_nested in child.children")
+                .col-md-8
                   p {{ child_nested.name }}
                 .col-md-4.pull-right
-                  button.btn.btn-warning
+                  button.btn.btn-warning(ng-click="editCategory(child_nested)")
                     = fa_icon 'pencil'
-                  button.btn.btn-primary
+                  button.btn.btn-primary(ng-click="deleteCategory(child, child_nested)")
                     = fa_icon 'trash'

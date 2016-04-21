@@ -8,6 +8,8 @@
 
 //= require_tree ./controllers
 //= require_tree ./factories
-
+//= require_tree ../templates
+//= require angular-ui-bootstrap
+//= require angular-ui-bootstrap-tpls
 
 //= require bootstrap-sprockets
