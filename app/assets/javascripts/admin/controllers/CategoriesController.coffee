@@ -52,6 +52,8 @@ angular.module("admin")
       )
       modalInstance.result.then ((selectedCategory) ->
         selectedCategory.collapse = true
+        if parent.children is undefined
+          parent.children = []
         parent.children.push(selectedCategory)
         $scope.message  = 'Категория успешно создана'
         $scope.showMessage()
