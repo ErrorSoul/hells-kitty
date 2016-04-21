@@ -1,0 +1,20 @@
+.modal-header
+  h3.modal-title Создать категорию
+.modal-body
+ form.form-inline.css-form
+  .form-group
+
+    .col-md-8
+      input#exampleInputName2.form-control[
+        placeholder="Введите название категории"
+        type="text" required
+        ng-model="category.name"
+        ng-minlength="3"
+    ]
+
+  button.btn.btn-default[
+    type="submit"
+    ng-click="createCategory()"
+  ] Создать
+.modal-footer
+  button.btn.btn-warning ng-click="cancel()" type="button"  Cancel
