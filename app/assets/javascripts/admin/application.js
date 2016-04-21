@@ -10,4 +10,4 @@
 //= require_tree ./factories
 
 
-//= require bootstrap
+//= require bootstrap-sprockets

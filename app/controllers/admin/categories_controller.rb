@@ -1,15 +1,9 @@
 class Admin::CategoriesController < Admin::BaseController
-  before_action :find_category, only: [:show,:edit, :update, :destroy]
+  before_action :find_category, only: [:update, :destroy]
 
-  def index
-    @categories = Category.all
-  end
+  def index; end
 
-  def show;  end
-
-  def edit; end
-
-  def update
+   def update
     if @category.update_attributes category_params
       flash[:success] = t 'flash.category.success.updated'
       redirect_to admin_categories_url
@@ -26,10 +20,6 @@ class Admin::CategoriesController < Admin::BaseController
     else
       render :new
     end
-  end
-
-  def new
-    @category= Category.new
   end
 
   def destroy

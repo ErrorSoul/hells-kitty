@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 $hell_main_color: #9BA477;
 $hell_red: #EC000E;
@@ -138,6 +139,55 @@ $hell_red: #EC000E;
   67% { background-color: #99f; }
   100% { background-color: #f99; }
 }
+
+.category-panel {
+  border: 1px solid gray;
+  min-height: 50px;
+  padding: 2%;
+
+  }
+.category-panel.nested {
+  margin-left: 5%;
+  }
+
+
+.category-panel.low-nested {
+  margin-left: 10%;
+  }
+.category-panel.low-nested:last-child {
+  border-bottom: 1px solid gray;
+  }
+.category-panel.low-nested:first-child {
+  border-bottom: 0px solid gray;
+  }
+
+
+
+.child-panel {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+
+.category-name {
+  font-size: 20px;
+  margin-top: 7px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nested-text {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 7px;
+
+}
+
+
+.low-nested + .low-nested{
+  border-bottom: 0px solid gray;
+}
+
+
 
 .paginator {padding: 20px 0 30px;margin: 0 auto;}
   .paginator ul {display: block;list-style: none; text-align: center;}

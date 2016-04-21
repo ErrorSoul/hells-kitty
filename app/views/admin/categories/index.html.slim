@@ -1,0 +1,56 @@
+
+
+.row(ng-controller="CategoriesController")
+  .col-md-12
+    .page-header
+      h1.clearfix
+        | Категории
+        .pull-right
+          button.btn.btn-default(ng-click="collapseAll()") Сжать все
+
+          button.btn.btn-default(ng-click="expandAll()") Раскрыть все
+
+
+
+    .col-md-9.center-block
+      .div[ng-repeat='category in categories']
+        .col-md-10.category-panel.clearfix
+          .col-md-2
+            .button.btn-default.btn(ng-click='collapsed(category)')
+              i.fa.fa-arrow-right[
+                ng-class="{true: 'fa-arrow-right', false: 'fa-arrow-down'}[!!category.collapse]"
+              ]
+
+          .col-md-6
+            p.category-name {{category.name}}
+          .col-md-4.pull-right
+            button.btn.btn-danger
+              i.fa.fa-plus
+            button.btn.btn-warning
+              = fa_icon 'pencil'
+        .col-md-10.child-panel(ng-hide="isCollapsed(category)")
+          .div(ng-repeat="child in category.children")
+            .col-md-10.category-panel.nested.clearfix
+              .col-md-2
+                .button.btn-default.btn(ng-click="collapsed(child)")
+                  i.fa.fa-arrow-right[
+                    ng-class="{true: 'fa-arrow-right', false: 'fa-arrow-down'}[!!child.collapse]"
+                  ]
+              .col-md-6
+                p.nested-text {{child.name}}
+              .col-md-4.pull-right
+                button.btn.btn-danger
+                  i.fa.fa-plus
+                button.btn.btn-warning
+                  = fa_icon 'pencil'
+                button.btn.btn-primary
+                  = fa_icon 'trash'
+            .col-md-10.child-panel(ng-hide="isCollapsed(child)")
+              .col-md-10.category-panel.low-nested.clearfix(ng-repeat="child_nested in child.children")
+                .col-md-6
+                  p {{ child_nested.name }}
+                .col-md-4.pull-right
+                  button.btn.btn-warning
+                    = fa_icon 'pencil'
+                  button.btn.btn-primary
+                    = fa_icon 'trash'

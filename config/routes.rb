@@ -3,5 +3,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource  :dashboard, only: :show
+    resources :categories
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :categories
+    end
   end
 end
