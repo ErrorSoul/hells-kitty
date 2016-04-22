@@ -1,0 +1,33 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    /! Brand and toggle get grouped for better mobile display
+    .navbar-header
+      .navbar-toggle.collapsed
+        span
+          = fa_icon 'search'
+      button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="#"  Brand
+    /! Collect the nav links, forms, and other content for toggling
+
+
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        - @categories.each do |category|
+
+          li.dropdown
+            a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+
+              span.nav-link-span
+                = category.name
+                span.before-style
+
+
+            ul.dropdown-menu.hovered-menu
+              - category.children.each do |child|
+                li
+                  a(href="#")
+                    p.underline-text = child.name

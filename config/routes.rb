@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins, controllers: { sessions: 'authentication/sessions' }
 
+  root 'mains#index'
+
   namespace :admin do
     resource  :dashboard, only: :show
     resources :categories
