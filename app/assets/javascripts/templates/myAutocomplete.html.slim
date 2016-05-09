@@ -1,0 +1,4 @@
+.col-md-12 ng-hide="!model.length || selected"
+  .row
+    .col-md-12.center-block.result-slot(ng-repeat="item in items| filter: model" ng-click="setSelect(item)" ng-bind-html="item | searchBoldfilter:model")
+      p {{item.breadcrumb}}

@@ -1,0 +1,81 @@
+.col-md-12
+   .page-header
+     h1.clearfix
+       | Создать товар
+
+.col-sm-6(ng-controller="ProductsController")
+  .panel.panel-default
+    .panel-heading Товар
+    .panel-body
+      = form_for(@product, url: admin_products_path, :html => { :multipart => true, class: "form form-horizontal css-form", name: 'myForm' }) do |f|
+
+
+        .form-group[
+          ng-init="product = #{@product.to_json}; items= #{Category.only_children_to_json}; find_item(product.category_id); "
+            class=has_error(@product, :name)
+          ]
+          = f.label t(:name), class: 'col-sm-2 control-label'
+          .col-sm-10
+            = f.text_field :name,  class: 'form-control', placeholder: :name, "ng-required": true, "ng-minlength": 4, "ng-maxlength": 100, "ng-model": "product.name"
+            div ng-messages="myForm['product[name]'].$error" role="alert" style="color:maroon"
+
+              div ng-message="minlength"  Слишком короткое название
+              div ng-message="maxlength"  Название слишком длинное
+
+
+        .form-group class=has_error(@product, :marking)
+          = f.label t(:marking), class: 'col-sm-2 control-label'
+          .col-sm-10
+            = f.text_field :marking,  class: 'form-control', placeholder: :marking, "ng-required": true, "ng-minlength": 4, "ng-maxlength": 100, "ng-model": "product.marking"
+            div ng-messages="myForm['product[marking]'].$error" role="alert" style="color:maroon"
+
+              div ng-message="minlength"  Слишком короткий артикул
+              div ng-message="maxlength"  Артикул слишком длинный
+
+        .form-group class=has_error(@product, :price)
+          = f.label t(:price), class: 'col-sm-2 control-label'
+          .col-sm-10
+            = f.text_field :price,  class: 'form-control', placeholder: :price, "ng-required": true, "ng-model": "product.price", "valid-number": "", "ng-minlength": 2
+            div ng-messages="myForm['product[price]'].$error" role="alert" style="color:maroon"
+
+              div ng-message="minlength"  Цена слишком короткая
+              div ng-message="maxlength"  Цена слишком длинная
+
+
+        = f.hidden_field :category_id, value: "{{ current.id }}"
+        .form-group
+          = f.label :category, class: 'col-sm-2 control-label'
+          .col-sm-10
+            = text_field_tag :marking, nil,  class: 'form-control', placeholder: 'Начните вводить название...', "ng-required": true, "ng-model":"product.category", 'ng-change': 'unSelected()'
+            my-autocomplete[
+              items="items"
+              model="product.category"
+              selected="selected"
+              current="current"
+            ]
+
+        = f.fields_for :product_attachments, @product.product_attachments.build do |p|
+          .form-group
+            = f.label :asset, class: 'col-sm-2 control-label'
+            .col-sm-10
+              = f.file_field :asset, multiple: true, name: "product_attachments[asset][]", class: 'files form-control',  "required": ""
+
+
+
+
+          - if params[:controller] == "post" && params[:action] == "edit"
+           - @product.product_attachments.each do |p|
+             = image_tag p.asset, size: "150x150"
+
+        .actions.clearfix
+          .pull-right
+            = link_to "Назад", admin_products_path, class: "btn btn-primary"
+            button.btn.btn-success[
+              type="submit"
+              ng-disabled="myForm.$invalid"
+            ] Сохранить продукт
+
+.col-sm-6
+  .panel.panel-default
+    .panel-heading Фото
+    .panel-body#list

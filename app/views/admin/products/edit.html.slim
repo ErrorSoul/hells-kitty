@@ -1,0 +1,18 @@
+= form_for(@product, url: admin_product_path(@product), :html => { :multipart => true }) do |f|
+   .field
+     = f.label :name
+     = f.text_field :name
+
+
+   = f.fields_for :product_attachments do |p|
+     .field
+       = p.label :asset
+       = p.file_field :asset, name: "product_attachments[asset][]"
+       = image_tag p.object.asset, :size => "150x150"
+
+
+
+
+
+   .actions
+     = f.submit

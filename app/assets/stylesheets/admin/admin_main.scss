@@ -205,3 +205,35 @@ input#exampleInputName2 {
   width: 320px;
   height: 280px;
   }
+
+.thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
+
+.col-md-12.result-slot {
+  transition: all 0.7s ease;
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  margin-top: 10px;
+  background: #F2F2F2;
+  padding: 10px;
+  box-shadow: 0px 0px 5px #CCC;
+
+&:hover {
+  cursor: pointer;
+  background-color: #9BA477;
+  color: white;
+  font-size: 20px;
+  height: auto;
+
+  }
+}
+
+.super-class {
+   font-weight: bold;
+    font-size: 2em;
+    color: red;
+}

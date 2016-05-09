@@ -29,12 +29,15 @@ gem 'angular-ui-bootstrap-rails'
 gem 'devise'
 gem 'cancan'
 
+# Search
+gem 'searchlight'
+
 # Tools
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
 gem 'state_machines-activerecord'
 gem 'awesome_nested_set'
-
+gem 'russian'
 
 # Excel
 gem 'axlsx'

@@ -1,4 +1,10 @@
 ru:
+  activerecord:
+    attributes:
+      product:
+        marking: 'Артикул'
+        name: 'Название'
+        price: 'Цена'
   email: 'Email'
   password: 'Пароль'
   password_confirmation: 'Подтверждение пароля'
@@ -6,3 +12,6 @@ ru:
   remember_me: 'Запомнить меня'
   sign_out: "Выйти"
   categories: Категории
+  marking: 'Артикул'
+  name: 'Название'
+  price: 'Цена'
