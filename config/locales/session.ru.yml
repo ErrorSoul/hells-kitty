@@ -1,4 +1,8 @@
 ru:
+  flash:
+    product:
+      success:
+        created: Товар успешно создан
   activerecord:
     attributes:
       product:
@@ -15,3 +19,5 @@ ru:
   marking: 'Артикул'
   name: 'Название'
   price: 'Цена'
+  asset: 'Фото'
+  category: 'Категория'

@@ -1,5 +1,3 @@
-
-
 .row.ng-cloak(ng-controller="CategoriesController")
   .col-md-6.center-block(ng-if="message")
     .alert.alert-success
@@ -17,7 +15,7 @@
     .col-md-9.center-block
       .div[ng-repeat='category in categories']
         .col-md-11.category-panel.clearfix
-          .col-md-1
+          .col-md-1 ng-if="category.children.length > 0"
             .button.btn-default.btn(ng-click='collapsed(category)')
               i.fa.fa-arrow-right[
                 ng-class="{true: 'fa-arrow-right', false: 'fa-arrow-down'}[!!category.collapse]"
@@ -33,7 +31,7 @@
         .col-md-11.child-panel(ng-hide="isCollapsed(category)")
           .div(ng-repeat="child in category.children")
             .col-md-11.category-panel.nested.clearfix
-              .col-md-1
+              .col-md-1 ng-if="child.children.length > 0"
                 .button.btn-default.btn(ng-click="collapsed(child)")
                   i.fa.fa-arrow-right[
                     ng-class="{true: 'fa-arrow-right', false: 'fa-arrow-down'}[!!child.collapse]"

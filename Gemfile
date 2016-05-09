@@ -8,6 +8,7 @@ gem 'pg'
 gem 'therubyracer'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'magnific-popup-rails', '~> 1.1.0'
 
 # See: https://github.com/pitr/angular-rails-templates/issues/97
 gem 'sprockets'

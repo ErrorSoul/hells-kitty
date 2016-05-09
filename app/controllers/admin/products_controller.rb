@@ -10,11 +10,17 @@ class Admin::ProductsController < Admin::BaseController
       params[:product_attachments]['asset'].each do |a|
         @product.product_attachments.create!(asset: a)
       end
-      redirect_to admin_categories_url
+      flash[:success] = t('flash.product.success.created')
+      redirect_to admin_product_path(@product)
     else
       flash[:error] = @product.errors.full_messages.join('<br/>').html_safe
       render :new
     end
+  end
+
+  def show
+    @product = Product.includes(:product_attachments, :category).find params[:id]
+
   end
 
   def edit

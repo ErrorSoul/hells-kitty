@@ -16,5 +16,7 @@
 //= require angular-ui-bootstrap-tpls
 
 //= require bootstrap-sprockets
+//= require magnific-popup
 
 //= require admin/file_upload
+//= require admin/open_popup

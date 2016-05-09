@@ -17,6 +17,7 @@ class Product < ActiveRecord::Base
   validates :marking, uniqueness: true
   validates :name, :marking, length: { in: 4..100 }
 
+  belongs_to :category
   has_many :product_attachments
   accepts_nested_attributes_for :product_attachments
 end

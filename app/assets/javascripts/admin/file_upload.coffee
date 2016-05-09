@@ -19,7 +19,7 @@ handleFileSelect = (evt) ->
 
         span = document.createElement('span')
         span.innerHTML = [
-          '<div class="col-sm-4"> <img class="img-responsive img-thumbnail" src="'
+          '<div class="col-md-6 bottom_20"> <img class="img-responsive img-thumbnail" src="'
           e.target.result
           '" title="'
           escape(theFile.name)
