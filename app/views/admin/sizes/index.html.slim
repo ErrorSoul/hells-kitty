@@ -9,11 +9,19 @@
 table.table.table-striped
  thead
    tr
-     th Размер
+     th colspan='1' id
+     th colspan='9' = t(:size)
+     th
+       .pull-right
+         = t(:actions)
  tbody
    - if @sizes.empty?
      tr
-       td colspan=10 'Ничего не найдено'
+       th colspan=10 'Ничего не найдено'
    - @sizes.each do |size|
      tr
-       td = size.name
+       td colspan='1' = size.id
+       td colspan='9' = size.name
+       td.clearfix
+         .pull-right
+           = render partial: 'buttons_group', locals: { size: size }
