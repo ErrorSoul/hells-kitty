@@ -16,6 +16,9 @@ angular.module("admin")
     $scope.unSelected = ->
       $scope.selected = false
 
+    $scope.remove = (index) ->
+        $scope.p_attachs.splice(index, 1)
+
 
 
 

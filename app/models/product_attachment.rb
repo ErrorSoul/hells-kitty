@@ -12,4 +12,6 @@
 class ProductAttachment < ActiveRecord::Base
   belongs_to :product
   mount_uploader :asset, AssetUploader
+
+  default_scope { order(id: :asc) }
 end

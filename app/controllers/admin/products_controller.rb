@@ -24,7 +24,20 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def edit
-    @product = Product.find params[:id]
+    @product = Product.includes(:product_attachments).find params[:id]
+    diff = 5 - @product.product_attachments.size
+    diff.times { @product.product_attachments.build } if diff > 0
+  end
+
+  def update
+     @product = Product.find params[:id]
+    if @product.update_attributes product_params
+      flash[:success] = t('flash.product.success.updated')
+      redirect_to admin_product_path(@product)
+    else
+      flash[:error] = @product.errors.full_messages.join('<br/>').html_safe
+      render :edit
+    end
   end
 
   private
@@ -32,7 +45,7 @@ class Admin::ProductsController < Admin::BaseController
   def product_params
     params.require(:product).permit(
       :name, :price, :marking, :category_id,
-      product_attachments_attributes: [:id, :product_id, :asset]
+      product_attachments_attributes: [:id, :product_id, :asset, :_destroy]
     )
   end
 end

@@ -32,5 +32,23 @@ handleFileSelect = (evt) ->
     reader.readAsDataURL f
     i++
   return
+if $('#product_asset').length
+  document.getElementById('product_asset').addEventListener 'change', handleFileSelect, false
 
-document.getElementById('product_asset').addEventListener 'change', handleFileSelect, false
+readURL = (input, id) ->
+  if input.files and input.files[0]
+    reader = new FileReader
+
+    reader.onload = (e) ->
+      $(input).parent().parent().siblings('img').attr 'src', e.target.result
+      return
+
+    reader.readAsDataURL input.files[0]
+  return
+
+if ('.inputFile').length
+        $('.inputFile').on 'change',  ->
+
+          id = $(this).data('type')
+          readURL this, id
+          return
