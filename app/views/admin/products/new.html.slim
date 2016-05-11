@@ -7,7 +7,7 @@
   .panel.panel-default
     .panel-heading Товар
     .panel-body
-      = form_for(@product, url: admin_products_path, :html => { :multipart => true, class: "form form-horizontal css-form", name: 'myForm' }) do |f|
+      = form_for(@product, url: admin_products_path,  html: { multipart: true, class: "form form-horizontal css-form", name: 'myForm' }) do |f|
 
 
         .form-group[

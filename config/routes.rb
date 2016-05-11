@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :admins, controllers: { sessions: 'authentication/sessions' }
-
   root 'mains#index'
+  devise_for :admins, controllers: { sessions: 'authentication/sessions' }
 
   namespace :admin do
     resource  :dashboard, only: :show
     resources :categories
     resources :products
+    resources :sizes
   end
 
   namespace :api do

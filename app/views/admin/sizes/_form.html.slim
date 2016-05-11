@@ -1,0 +1,16 @@
+.form-group class=has_error(@size, :price)
+  = f.label t(:size), class: 'col-sm-2 control-label'
+  .col-sm-10
+    = f.text_field :name,  class: 'form-control', placeholder: t(:size), "ng-required": true, "ng-model": "size.name", "ng-minlength": 1
+    div ng-messages="myForm['size[name]'].$error" role="alert" style="color:maroon"
+
+      div ng-message="minlength"  Цена слишком короткая
+      div ng-message="maxlength"  Цена слишком длинная
+
+.actions.clearfix
+  .pull-right
+    = link_to "Назад", admin_sizes_path, class: "btn btn-primary"
+    button.btn.btn-success[
+      type="submit"
+      ng-disabled="myForm.$invalid"
+    ] Сохранить размер

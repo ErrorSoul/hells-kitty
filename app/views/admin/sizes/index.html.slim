@@ -1,0 +1,19 @@
+.col-md-12
+  .page-header
+    h1.clearfix
+      | Размеры
+      .pull-right
+        = link_to "Создать", new_admin_size_path, class: 'btn btn-success'
+
+
+table.table.table-striped
+ thead
+   tr
+     th Размер
+ tbody
+   - if @sizes.empty?
+     tr
+       td colspan=10 'Ничего не найдено'
+   - @sizes.each do |size|
+     tr
+       td = size.name

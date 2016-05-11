@@ -3,12 +3,18 @@ ru:
     product:
       success:
         created: Товар успешно создан
+        updated: Товар успешно обновлен
+    size:
+      success:
+        created: Размер успешно создан
+        updated: Размер успешно обновлен
   activerecord:
     attributes:
       product:
         marking: 'Артикул'
         name: 'Название'
         price: 'Цена'
+        size: Размер
   email: 'Email'
   password: 'Пароль'
   password_confirmation: 'Подтверждение пароля'
@@ -21,3 +27,4 @@ ru:
   price: 'Цена'
   asset: 'Фото'
   category: 'Категория'
+  size: Размер
