@@ -1,0 +1,60 @@
+.col-md-12
+  .page-header
+    h1.clearfix
+      | Товар #
+      = @product.id
+
+  .col-md-6
+    .panel.panel-default
+      .panel-heading Товар
+      .panel-body
+        form.form-horizontal
+          .form-group
+            label.col-sm-2.control-label = t(:name)
+            .col-sm-10
+              p.form-control-static = @product.name
+
+        form.form-horizontal
+          .form-group
+            label.col-sm-2.control-label = t(:marking)
+            .col-sm-10
+              p.form-control-static = @product.marking
+
+        form.form-horizontal
+          .form-group
+            label.col-sm-2.control-label = t(:price)
+            .col-sm-10
+              p.form-control-static = @product.price
+
+        form.form-horizontal
+          .form-group
+            label.col-sm-2.control-label = t(:category)
+            .col-sm-10
+
+              p.form-control-static
+                span.label.label-info.category-label
+                  = @product.category.root.name
+              - if @product.category.root.name != @product.category.parent.name
+                p.form-control-static
+                  span.label.label-info.category-label
+                    = @product.category.parent.name
+              p.form-control-static
+                span.label.label-info.category-label
+                   = @product.category.name
+
+        .clearfix
+          .pull-right
+            = link_to 'Назад', admin_products_path, class: 'btn btn-primary'
+            = link_to 'Редактировать', edit_admin_product_path(@product), class: 'btn btn-warning'
+
+  .col-md-6
+    .panel.panel-default
+      .panel-heading = t(:asset)
+      .panel-body
+        .popup-gallery data-type="#{@product.product_attachments.to_json}"
+
+          - @product.product_attachments.each do |p_attach|
+
+            .col-md-6.bottom_20.open-gallery-link
+              = image_tag p_attach.asset.url, class: 'img-responsive', "data-type": "#{p_attach.asset.url}", href: "#{p_attach.asset.url}"
+              a href=p_attach.asset.url

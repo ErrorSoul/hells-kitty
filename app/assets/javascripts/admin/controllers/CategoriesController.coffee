@@ -96,3 +96,9 @@ angular.module("admin")
 
     $scope.init()
 ])
+
+angular.module("admin").directive("autocomplete", [ "$scope", "$http","$uibModal", '$log', '$timeout',  ($scope, $http, $uibModal, $log, $timeout) ->
+    restrict: 'A'
+    templateUrl: 'myAutocomplete.html'
+
+])

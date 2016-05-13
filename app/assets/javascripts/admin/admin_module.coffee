@@ -1,1 +1,1 @@
-angular.module('admin', ["templates", "ui.bootstrap"])
+angular.module('admin', ["templates", "ui.bootstrap", 'ngSanitize', 'ngMessages'])

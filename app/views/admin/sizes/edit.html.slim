@@ -1,0 +1,12 @@
+.col-sm-12
+   .page-header
+     h1.clearfix
+       | Изменить размер
+
+   .col-sm-6.center-block(ng-controller="ProductsController")
+     .panel.panel-default
+       .panel-heading= t(:size)
+
+       .panel-body
+         = form_for(@size, url: admin_size_url(@size), html: { class: 'form form-horizontal css-form', name: 'myForm' })  do |f|
+           = render partial: 'form', locals: { f: f }

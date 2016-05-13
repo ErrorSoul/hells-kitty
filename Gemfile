@@ -8,6 +8,7 @@ gem 'pg'
 gem 'therubyracer'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'magnific-popup-rails', '~> 1.1.0'
 
 # See: https://github.com/pitr/angular-rails-templates/issues/97
 gem 'sprockets'
@@ -29,12 +30,15 @@ gem 'angular-ui-bootstrap-rails'
 gem 'devise'
 gem 'cancan'
 
+# Search
+gem 'searchlight'
+
 # Tools
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
 gem 'state_machines-activerecord'
 gem 'awesome_nested_set'
-
+gem 'russian'
 
 # Excel
 gem 'axlsx'
