@@ -1,0 +1,27 @@
+.col-md-12
+  .page-header
+    h1.clearfix
+      | Размеры
+      .pull-right
+        = link_to "Создать", new_admin_size_path, class: 'btn btn-success'
+
+
+table.table.table-striped
+ thead
+   tr
+     th colspan='1' id
+     th colspan='9' = t(:size)
+     th
+       .pull-right
+         = t(:actions)
+ tbody
+   - if @sizes.empty?
+     tr
+       th colspan=10 'Ничего не найдено'
+   - @sizes.each do |size|
+     tr
+       td colspan='1' = size.id
+       td colspan='9' = size.name
+       td.clearfix
+         .pull-right
+           = render partial: 'buttons_group', locals: { size: size }
