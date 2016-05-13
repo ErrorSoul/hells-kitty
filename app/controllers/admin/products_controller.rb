@@ -1,4 +1,9 @@
 class Admin::ProductsController < Admin::BaseController
+
+  def index
+    @products = Product.includes(:product_attachments).all
+  end
+
   def new
     @product = Product.new
     @product_attachment = @product.product_attachments.build
