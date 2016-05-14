@@ -17,7 +17,7 @@ table.table.table-striped
  tbody
    - if @sizes.empty?
      tr
-       th colspan=10 'Ничего не найдено'
+       th colspan=12 = t(:not_found)
    - @sizes.each do |size|
      tr
        td colspan='1' = size.id

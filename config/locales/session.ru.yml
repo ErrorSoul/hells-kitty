@@ -4,10 +4,18 @@ ru:
       success:
         created: Товар успешно создан
         updated: Товар успешно обновлен
+        deleted: Товар успешно удален
+      fail:
+        deleted: Не удалось удалить этот товар
+
+
     size:
       success:
         created: Размер успешно создан
         updated: Размер успешно обновлен
+        deleted: Размер успешно удален
+      fail:
+        deleted: Не удалось удалить этот товар
   activerecord:
     attributes:
       product:
@@ -31,5 +39,12 @@ ru:
   size: Размер
   sizes: Размеры
   products: Товары
+  product: Продукт
   actions: Действия
   create: Создать
+  edit: Редактировать
+  destroy: Удалить
+  show: Показать
+  back: Назад
+  are_you_sure: Вы уверены, что хотите продолжить?
+  not_found: Не найдено
