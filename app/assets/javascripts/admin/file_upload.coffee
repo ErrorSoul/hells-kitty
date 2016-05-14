@@ -40,7 +40,9 @@ readURL = (input, id) ->
     reader = new FileReader
 
     reader.onload = (e) ->
-      $(input).parent().parent().siblings('img').attr 'src', e.target.result
+      $(input).parent()
+              .first()
+              .siblings('img').attr 'src', e.target.result
       return
 
     reader.readAsDataURL input.files[0]

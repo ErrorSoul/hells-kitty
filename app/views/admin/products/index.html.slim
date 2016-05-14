@@ -4,14 +4,15 @@
        | Создать товар
        .pull-right
          = link_to t(:create), new_admin_product_url, class: 'btn btn-success'
-         
+
 .col-lg-12.col-xs-12
-  - @products.each do |product|      
+  - @products.each do |product|
     .col-xs-12.col-lg-4
       .thumbnail
-        = image_tag product.product_attachments.first.try(:asset).try(:url), class: 'img-responsive'
-        
+        = link_to admin_product_path(product), class: 'text-center product-link' do
+          = image_tag product.product_attachments.first.try(:asset).try(:url), class: 'img-responsive'
+        end
+
         = link_to admin_product_path(product), class: 'text-center product-link' do
           h4.text-center = product.name
         end
-        

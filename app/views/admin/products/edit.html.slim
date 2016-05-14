@@ -15,7 +15,7 @@
           .col-sm-10
             = f.text_field :name,  class: 'form-control', placeholder: t(:name), "ng-required": true, "ng-minlength": 4, "ng-maxlength": 100, "ng-model": "product.name"
 
-            div ng-messages="myForm['product[name]'].$error" role="alert" style="color:maroon"
+            div.ng-cloak ng-messages="myForm['product[name]'].$error" role="alert" style="color:maroon"
               div ng-message="minlength"  Слишком короткое название
               div ng-message="maxlength"  Название слишком длинное
 
@@ -25,7 +25,7 @@
           .col-sm-10
             = f.text_field :marking,  class: 'form-control', placeholder: t(:marking), "ng-required": true, "ng-minlength": 4, "ng-maxlength": 100, "ng-model": "product.marking"
 
-            div ng-messages="myForm['product[marking]'].$error" role="alert" style="color:maroon"
+            div.ng-cloak ng-messages="myForm['product[marking]'].$error" role="alert" style="color:maroon"
               div ng-message="minlength"  Слишком короткий артикул
               div ng-message="maxlength"  Артикул слишком длинный
 
@@ -34,7 +34,7 @@
           .col-sm-10
             = f.text_field :price,  class: 'form-control', placeholder: t(:price), "ng-required": true, "ng-model": "product.price", "valid-number": "", "ng-minlength": 2
 
-            div ng-messages="myForm['product[price]'].$error" role="alert" style="color:maroon"
+            div.ng-cloak ng-messages="myForm['product[price]'].$error" role="alert" style="color:maroon"
               div ng-message="minlength"  Цена слишком короткая
               div ng-message="maxlength"  Цена слишком длинная
 
@@ -69,12 +69,14 @@
       .panel-body#list
         = f.fields_for :product_attachments  do |p_form|
           .col-md-6.bottom_20
-            .form-group
-              = p_form.label t(:asset), class: 'col-sm-2 control-label'
-              .col-sm-10
-                = p_form.file_field :asset, class: 'inputFile form-control', 'data-type': p_form.object.id
+
+            div.upload
+              p Выберите файл
+              = p_form.file_field :asset, class: 'inputFile form-control input-hide', 'data-type': p_form.object.id
 
 
-            = image_tag p_form.object.asset.url, class: 'img-responsive', id: p_form.object.id
-            = label 'fff', :_destroy
-            = p_form.check_box  :_destroy
+            = image_tag p_form.object.asset.url, class: 'img-responsive img-height', id: p_form.object.id
+
+            p
+              | Удалить  &nbsp
+              = p_form.check_box  :_destroy

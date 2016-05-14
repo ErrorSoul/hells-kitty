@@ -2,9 +2,13 @@
 @import "bootstrap";
 @import "font-awesome";
 
+@import url(https://fonts.googleapis.com/css?family=Arimo:700&subset=latin,cyrillic);
 $hell_main_color: #9BA477;
 $hell_red: #EC000E;
 
+body {
+  font-family: 'Arimo', sans-serif;
+}
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
@@ -257,3 +261,32 @@ input#exampleInputName2 {
    }
 
  }
+.button-control-group {
+   margin-top: 60px;
+ }
+
+.img-height {
+  max-height: 330px;
+  height: 330px;
+}
+
+div.upload {
+    p {
+      position: absolute;
+      top: 4%;
+      left: 25%;
+      }
+
+    height: 45px;
+    color: #f1e5e6;
+    background-color: #867BDC;
+    overflow: hidden;
+}
+
+div.upload input {
+    display: block !important;
+    width: 157px !important;
+    height: 57px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+}

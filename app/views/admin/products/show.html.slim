@@ -8,41 +8,42 @@
     .panel.panel-default
       .panel-heading Товар
       .panel-body
-        form.form-horizontal
-          .form-group
-            label.col-sm-2.control-label = t(:name)
-            .col-sm-10
-              p.form-control-static = @product.name
+        .col-md-8.center-block
+          form.form-horizontal
+            .form-group
+              label.col-sm-2.control-label = t(:name)
+              .col-sm-10.text-center
+                p.form-control-static = @product.name
 
-        form.form-horizontal
-          .form-group
-            label.col-sm-2.control-label = t(:marking)
-            .col-sm-10
-              p.form-control-static = @product.marking
+          form.form-horizontal
+            .form-group
+              label.col-sm-2.control-label = t(:marking)
+              .col-sm-10.text-center
+                p.form-control-static = @product.marking
 
-        form.form-horizontal
-          .form-group
-            label.col-sm-2.control-label = t(:price)
-            .col-sm-10
-              p.form-control-static = @product.price
+          form.form-horizontal
+            .form-group
+              label.col-sm-2.control-label = t(:price)
+              .col-sm-10.text-center
+                p.form-control-static = @product.price
 
-        form.form-horizontal
-          .form-group
-            label.col-sm-2.control-label = t(:category)
-            .col-sm-10
+          form.form-horizontal
+            .form-group
+              label.col-sm-2.control-label = t(:category)
+              .col-sm-10.text-center
 
-              p.form-control-static
-                span.label.label-info.category-label
-                  = @product.category.root.name
-              - if @product.category.root.name != @product.category.parent.name
                 p.form-control-static
                   span.label.label-info.category-label
-                    = @product.category.parent.name
-              p.form-control-static
-                span.label.label-info.category-label
-                   = @product.category.name
+                    = @product.category.root.name
+                - if @product.category.root.name != @product.category.parent.name
+                  p.form-control-static
+                    span.label.label-info.category-label
+                      = @product.category.parent.name
+                p.form-control-static
+                  span.label.label-info.category-label
+                     = @product.category.name
 
-        .clearfix
+        .clearfix.button-control-group
           .pull-right
             = link_to 'Назад', admin_products_path, class: 'btn btn-primary'
             = link_to 'Редактировать', edit_admin_product_path(@product), class: 'btn btn-warning'
