@@ -271,22 +271,39 @@ input#exampleInputName2 {
 }
 
 div.upload {
-    p {
+    .p-class {
       position: absolute;
       top: 4%;
       left: 25%;
       }
 
+    .relation-position {
+      text-align: center;
+      padding-top: 2%;
+      font-size: 2.2vh;
+      cursor: pointer;
+
+      &:hover {
+      cursor: pointer;
+
+      }
+      }
+
+
     height: 45px;
     color: #f1e5e6;
     background-color: #867BDC;
+    &:hover { cursor:pointer;}
     overflow: hidden;
+
 }
 
 div.upload input {
+    cursor: pointer;
     display: block !important;
-    width: 157px !important;
+    width: 100%;
     height: 57px !important;
     opacity: 0 !important;
     overflow: hidden !important;
+
 }

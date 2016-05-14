@@ -58,7 +58,9 @@
           .form-group
             = f.label t(:asset), class: 'col-sm-2 control-label'
             .col-sm-10
-              = f.file_field :asset, multiple: true, name: "product_attachments[asset][]", class: 'files form-control',  "required": ""
+              div.upload
+                p#input_label.relation-position = t(:choose_file)
+                = f.file_field :asset, multiple: true, name: "product_attachments[asset][]", class: 'input-hide files form-control',  "required": ""
 
 
 

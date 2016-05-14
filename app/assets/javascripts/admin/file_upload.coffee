@@ -18,6 +18,9 @@ handleFileSelect = (evt) ->
         # Render thumbnail.
 
         span = document.createElement('span')
+        p = document.getElementById('input_label')
+        console.log('p', p)
+        p.innerHTML = 'Выбрано' + ' ' +  files.length
         span.innerHTML = [
           '<div class="col-md-6 bottom_20"> <img class="img-responsive img-thumbnail" src="'
           e.target.result
@@ -54,3 +57,6 @@ if ('.inputFile').length
           id = $(this).data('type')
           readURL this, id
           return
+
+$('.relation-position').on 'click', ->
+        $('.input-hide').trigger('click')
