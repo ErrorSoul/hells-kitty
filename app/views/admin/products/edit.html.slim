@@ -51,6 +51,12 @@
               current="current"
             ]
 
+        h4 style="text-align: left"
+          = t(:public)
+          | &nbsp
+          span.pull-right
+            = f.check_box  :public
+
     .panel.panel-default
       .panel-heading = t(:sizes)
       .panel-body ng-init="psizes = #{@product.product_sizes.to_json}; sizes=#{Size.all.to_json};"

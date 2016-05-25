@@ -43,6 +43,12 @@
                 p.form-control-static
                   span.label.label-info.category-label
                      = @product.category.name
+          form.form-horizontal
+           .form-group
+             label.col-sm-2.control-label = t(:public_state)
+             .col-sm-10.text-center
+               p.form-control-static
+                span.label.label-success.category-label = t convert_boolean(@product.public)
 
 
 

@@ -9,6 +9,7 @@
 #  marking     :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  public      :boolean          default("false")
 #
 
 class Product < ActiveRecord::Base

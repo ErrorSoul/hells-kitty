@@ -51,6 +51,12 @@
               selected="selected"
               current="current"
             ]
+        h4 style="text-align: left"
+          = t(:public)
+          | &nbsp
+          span.pull-right
+            = f.check_box  :public
+
 
         = f.fields_for :product_attachments, @product.product_attachments.build do |p|
           .form-group

@@ -50,3 +50,7 @@ ru:
   not_found: Не найдено
   choose_file: Выберите файлы
   value: Количество
+  public: Публиковать на сайте?
+  public_state: На сайте?
+  _true: Да
+  _false: Нет
