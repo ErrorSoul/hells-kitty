@@ -51,8 +51,32 @@
               current="current"
             ]
 
+    .panel.panel-default
+      .panel-heading = t(:sizes)
+      .panel-body ng-init="psizes = #{@product.product_sizes.to_json}; sizes=#{Size.all.to_json};"
 
+        div ng-repeat="psize in psizes" ng-hide="psize._destroy === '1'"
+          = f.fields_for :product_sizes, ProductSize.new, child_index: '{{$index}}' do |ps_form|
 
+            = ps_form.hidden_field :id, value: "{{psize.id}}", id: "product_size_id_{{$index}}", name: "product[product_sizes_attributes][{{$index}}][id]"
+            = ps_form.hidden_field :_destroy, value: "{{psize._destroy}}", id: "product_size__destroy_{{$index}}", name: "product[product_sizes_attributes][{{$index}}][_destroy]"
+            .form-group
+
+                = ps_form.label t(:size), class: 'col-sm-2 control-label', id: "product_size_size_id_{{$index}}", name: "product[product_sizes_attributes][{{$index}}][size_id]"
+                .col-sm-8
+                  select class="form-control" id="product_size_size_id_{{$index}}" name="product[product_sizes_attributes][{{$index}}][size_id]"
+                    option style="display:none" value="" Выбрать размер
+                    option ng-repeat="size in sizes track by size.id" value="{{size.id}}" ng-selected="{{equal(size, psize)}}" {{size.name}}
+            .form-group
+                = ps_form.label t(:value), class: 'col-sm-2 control-label'
+                .col-sm-8
+                  = ps_form.text_field :value, class: 'form-control', id: 'product_size_value_{{$index}}', value: "{{psize.value}}"
+                .col-sm-2
+                  button.btn.btn-block.btn-danger.btn-remove type="button" ng-click="remove_edit(psize)" ng-show="isRemovable()"
+                    = fa_icon 'close'
+        .col-md-8.center-block.btn-remove
+          button.btn.btn-block.btn-success type="button" ng-click="add()"
+            = fa_icon 'plus-square'
 
 
         .actions.clearfix
@@ -62,6 +86,7 @@
               type="submit"
               ng-disabled="myForm.$invalid"
             ] Сохранить продукт
+
 
   .col-sm-6
     .panel.panel-default
