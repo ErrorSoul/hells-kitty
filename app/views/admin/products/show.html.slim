@@ -5,7 +5,7 @@
       | &nbsp
       = @product.id
 
-  .col-md-6
+  .col-sm-6
     .panel.panel-default
       .panel-heading Товар
       .panel-body
@@ -43,6 +43,28 @@
                 p.form-control-static
                   span.label.label-info.category-label
                      = @product.category.name
+          form.form-horizontal
+           .form-group
+             label.col-sm-2.control-label = t(:public_state)
+             .col-sm-10.text-center
+               p.form-control-static
+                span.label.label-success.category-label = t convert_boolean(@product.public)
+
+
+
+    .panel.panel-default
+      .panel-heading = t(:sizes)
+      .panel-body
+
+        .col-md-12.sizes-block
+          - @product.product_sizes.each do |ps|
+            .col-md-5
+              .col-md-12.size-block
+                h1
+                  = ps.size.name
+                  | &nbsp
+                  span.badge
+                    = ps.value
 
         .clearfix.button-control-group
           .pull-right

@@ -1,15 +1,13 @@
 .col-md-12
-   .page-header
-     h1.clearfix
-       | Создать товар
+  .page-header
+    h1.clearfix
+      | Создать товар
+= form_for(@product, url: admin_products_path,  html: { multipart: true, class: "form form-horizontal css-form", name: 'myForm' }) do |f|
 
-.col-sm-6(ng-controller="ProductsController")
-  .panel.panel-default
-    .panel-heading Товар
-    .panel-body
-      = form_for(@product, url: admin_products_path,  html: { multipart: true, class: "form form-horizontal css-form", name: 'myForm' }) do |f|
-
-
+  .col-sm-6(ng-controller="ProductsController")
+    .panel.panel-default
+      .panel-heading Товар
+      .panel-body
         .form-group[
           ng-init="product = #{@product.to_json}; items= #{Category.only_children_to_json}; find_item(product.category_id); "
             class=has_error(@product, :name)
@@ -46,13 +44,19 @@
         .form-group
           = f.label t(:category), class: 'col-sm-2 control-label'
           .col-sm-10
-            = text_field_tag :marking, nil,  class: 'form-control', placeholder: 'Начните вводить название...', "ng-required": true, "ng-model":"product.category", 'ng-change': 'unSelected()'
+            = text_field_tag :category, nil,  class: 'form-control', placeholder: 'Начните вводить название...', "ng-required": true, "ng-model":"product.category", 'ng-change': 'unSelected()'
             my-autocomplete[
               items="items"
               model="product.category"
               selected="selected"
               current="current"
             ]
+        h4 style="text-align: left"
+          = t(:public)
+          | &nbsp
+          span.pull-right
+            = f.check_box  :public
+
 
         = f.fields_for :product_attachments, @product.product_attachments.build do |p|
           .form-group
@@ -63,11 +67,29 @@
                 = f.file_field :asset, multiple: true, name: "product_attachments[asset][]", class: 'input-hide files form-control',  "required": ""
 
 
+    .panel.panel-default
+      .panel-heading = t(:sizes)
+      .panel-body ng-init="psizes = #{@product.product_sizes.to_json}; sizes=#{Size.all.to_json};"
 
+        div ng-repeat="psize in psizes"
+          = f.fields_for :product_sizes, ProductSize.new, child_index: '{{$index}}' do |ps_form|
+            .form-group
+                = ps_form.label t(:size), class: 'col-sm-2 control-label'
+                .col-sm-8
+                  select class="form-control" id="product_size_size_id_{{$index}}" name="product[product_sizes_attributes][{{$index}}][size_id]"
+                    option style="display:none" value="" Выбрать размер
+                    option ng-repeat="size in sizes track by size.id" value="{{size.id}}" ng-selected="{{equal(size, psize)}}" {{size.name}}
+            .form-group
+                = ps_form.label t(:value), class: 'col-sm-2 control-label'
+                .col-sm-8
+                  = ps_form.text_field :value, class: 'form-control', id: 'product_size_value_{{$index}}', value: "{{psize.value}}"
+                .col-sm-2
+                  button.btn.btn-block.btn-danger.btn-remove type="button" ng-click="remove_psize($index)" ng-show="isRemovable()"
+                    = fa_icon 'close'
+        .col-md-8.center-block.btn-remove
+          button.btn.btn-block.btn-success type="button" ng-click="add()"
+            = fa_icon 'plus-square'
 
-          - if params[:controller] == "post" && params[:action] == "edit"
-           - @product.product_attachments.each do |p|
-             = image_tag p.asset, size: "150x150"
 
         .actions.clearfix
           .pull-right
@@ -77,7 +99,7 @@
               ng-disabled="myForm.$invalid"
             ] Сохранить продукт
 
-.col-sm-6
-  .panel.panel-default
-    .panel-heading = t(:asset)
-    .panel-body#list
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading = t(:asset)
+      .panel-body#list

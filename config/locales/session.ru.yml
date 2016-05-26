@@ -49,3 +49,8 @@ ru:
   are_you_sure: Вы уверены, что хотите продолжить?
   not_found: Не найдено
   choose_file: Выберите файлы
+  value: Количество
+  public: Публиковать на сайте?
+  public_state: На сайте?
+  _true: Да
+  _false: Нет
