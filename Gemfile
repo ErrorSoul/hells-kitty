@@ -52,6 +52,8 @@ gem 'carrierwave'
 gem 'easy-s3'
 gem "fog"
 
+# Search
+gem 'searchlight'
 
 group :development, :test  do
   gem 'thin'

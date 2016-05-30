@@ -321,4 +321,82 @@ div.upload input {
 
 .size-block {
   border: 2px dashed;
+  h1 {
+    color:  #f31414;
 }
+}
+.product-marking {
+
+  color: gray;
+
+  text-align: right;
+ }
+h4.great {
+   background: #62cec1;
+    //margin: 0 0 25px -47px;
+    padding: 7px 15px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    display: inline-block;
+    //-moz-box-shadow: 2px 4px 5px 0 #ccc;
+    //-webkit-box-shadow: 2px 4px 5px 0 #ccc;
+    //box-shadow: 2px 4px 5px 0 #ccc;
+}
+
+.my-badge {
+  background-color: inherit !important; }
+
+ .head-attr {
+   //padding-top: 10px;
+   //padding-bottom: 10px;
+  border: 2px dashed;
+  color: #dc9b44;
+    }
+
+  .body-attr {
+    border-right: 2px dashed;
+    border-left: 2px dashed;
+    border-bottom: 2px dashed;
+    color: white;
+    background: #dc9b44;
+    }
+
+.attr-block {
+  padding-top: 10px;
+  }
+
+.label-size {
+  background-color: #79528a;
+  }
+
+.category-line {
+  font-size: 11px;
+}
+
+  .text-right {
+    text-align: right;
+    }
+
+.form-search {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  .form-control {
+    height: 42px;
+    }
+  }
+
+
+.closed-search {
+  display: none;
+ }
+
+   .btn-circle {
+     border-radius: 50px;
+     }
+
+.btn-create {
+  border: 3px dashed white;
+  }

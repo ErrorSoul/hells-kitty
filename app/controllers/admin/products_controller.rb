@@ -1,7 +1,8 @@
 class Admin::ProductsController < Admin::BaseController
 
   def index
-    @products = Product.includes(:product_attachments).all
+    @search = ProductSearch.new(search_params)
+    @products = @search.results.includes(:product_attachments, :category)
   end
 
   def new
@@ -53,5 +54,9 @@ class Admin::ProductsController < Admin::BaseController
       product_attachments_attributes: [:id, :product_id, :asset, :_destroy],
       product_sizes_attributes: [:id, :product_id, :size_id, :value, :_destroy]
     )
+  end
+
+  def search_params
+    params[:product_search] || {}
   end
 end

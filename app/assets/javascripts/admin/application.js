@@ -20,3 +20,4 @@
 
 //= require admin/file_upload
 //= require admin/open_popup
+//= require admin/search_form
