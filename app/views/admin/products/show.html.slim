@@ -35,14 +35,14 @@
 
                 p.form-control-static
                   span.label.label-info.category-label
-                    = @product.category.root.name
-                - if @product.category.root.name != @product.category.parent.name
+                    = @product.category.try(:root).try(:name)
+                - if @product.category.try(:root).try(:name) != @product.category.try(:parent).try(:name)
                   p.form-control-static
                     span.label.label-info.category-label
-                      = @product.category.parent.name
+                      = @product.category.try(:parent).try(:name)
                 p.form-control-static
                   span.label.label-info.category-label
-                     = @product.category.name
+                     = @product.category.try(:name)
           form.form-horizontal
            .form-group
              label.col-sm-2.control-label = t(:public_state)
@@ -61,10 +61,10 @@
             .col-md-5
               .col-md-12.size-block
                 h1
-                  = ps.size.name
+                  = ps.size.try(:name)
                   | &nbsp
                   span.badge
-                    = ps.value
+                    = ps.try(:value)
 
         .clearfix.button-control-group
           .pull-right
