@@ -66,7 +66,7 @@
                     .col-xs-6 class="#{'text-right' if ind.even?}"
 
                       span.label.label-size
-                        = p_size.size.name
+                        = p_size.size.try(:name)
                         | &nbsp
                         span.badge.my-badge
-                          = p_size.value
+                          = p_size.try(:value)
