@@ -13,7 +13,7 @@
 #
 
 class Product < ActiveRecord::Base
-  validates :name, :price, :marking, presence: true
+  validates :name, :price, :marking, :category_id,  presence: true
   validates :price, numericality: { only_integer: true }
   validates :marking, uniqueness: true
   validates :name, :marking, length: { in: 4..100 }

@@ -41,7 +41,7 @@
 
 
         = f.hidden_field :category_id, value: "{{ current.id }}"
-        .form-group
+        .form-group class=has_error(@product, :category_id)
           = f.label t(:category), class: 'col-sm-2 control-label'
           .col-sm-10
             = text_field_tag :category, nil,  class: 'form-control', placeholder: 'Начните вводить название...', "ng-required": true, "ng-model":"product.category", 'ng-change': 'unSelected()'

@@ -40,7 +40,7 @@
             = link_to admin_product_path(product), class: 'text-center product-link' do
               h4.text-center = product.name
             end
-            p.text-center.category-line = product.category.breadcrumb
+            p.text-center.category-line = product.category.try(:breadcrumb)
 
 
             .caption
