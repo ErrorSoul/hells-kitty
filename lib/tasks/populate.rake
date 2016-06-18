@@ -1,5 +1,39 @@
 # -*- coding: utf-8 -*-
 namespace :db do
+  desc 'populate products'
+  task create_products: :environment do
+    PATH  = 'public/photo'
+    files = Dir.foreach(PATH).select do |filename|
+      !filename.in?(%w(. ..))
+    end
+
+    files = files.map do |filename|
+      File.join(PATH, filename)
+    end
+    categories = Category.where(children_count: 0)
+    sizes = Size.all
+    Product.transaction do
+      50.times do |n|
+        p = Product.create!\
+          name: "Classic Modern #{n}",
+          category_id: categories.sample.id,
+          price: 10000,
+          marking: "ABCD#{n}"
+        files.each do |file|
+          p_a = ProductAttachment.new
+          p_a.asset = File.open(file)
+          p.product_attachments << p_a
+        end
+        [sizes.sample, sizes.sample, sizes.sample].each do |size|
+          p_s = ProductSize.new
+          p_s.size_id = size.id
+          p_s.value = 10
+          p.product_sizes << p_s
+        end
+      end
+    end
+  end
+
   desc 'populate categories'
   task create_categories: :environment do
     categories_array =

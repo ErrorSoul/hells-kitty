@@ -22,6 +22,10 @@
         = f.label t(:marking), class: 'control-label col-xs-4'
         .col-xs-8
           = f.text_field :marking, class: 'form-control'
+      .form-group.col-xs-12.col-lg-5
+        = f.label t(:category_id), class: 'control-label col-xs-4'
+        .col-xs-8
+          = f.text_field :category_id, class: 'form-control'
 
       .form-group.col-xs-12.col-lg-2
         = button_tag(type: 'submit' , class: 'btn btn-large btn-primary btn-circle') do
