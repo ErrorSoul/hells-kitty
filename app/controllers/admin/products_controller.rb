@@ -1,6 +1,8 @@
 class Admin::ProductsController < Admin::BaseController
 
   def index
+    @categories = Category.roots.includes(children: :children)
+                          .as_json(include: {children: {include: :children}})
     @search = ProductSearch.new(search_params)
     @products = @search.results.includes(:product_attachments, :category)
   end
