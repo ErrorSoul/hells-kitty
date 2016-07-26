@@ -75,10 +75,12 @@ var CategoryList = React.createClass({
 	}
 	var categoriesFlatten  = flatten(this.props.data, []);
 	console.log("categories flatten", categoriesFlatten );
+	console.log('find Categories', this.findCategories(this.props.category, categoriesFlatten));
 	return {
 	    data: this.props.data,
 	    categories: categoriesFlatten,
-	    category: {}
+	    category: this.findSelf(this.props.category, categoriesFlatten),
+	    currentCategories: this.findCategories(this.props.category, categoriesFlatten) || this.props.data
 	};
     },
 
@@ -88,14 +90,34 @@ var CategoryList = React.createClass({
 
     },
   onClick: function (category) {
-      console.log(category, 'category');
-      this.setState({ data: (category.children || this.state.data), category: category});
-      console.log(this.state, 'state');
+      this.setState({ currentCategories: (this.findChildren(category) || this.state.currentCategories), category: category});
   },
+
+    findParent: function(category, categories) {
+	return _.find(categories, function(cat){ return cat.id == category.parent_id })
+
+    },
+
+    findSelf: function(category, categories) {
+	return _.find(categories, function(cat) { return cat.id == category.id })
+    },
+
+    findCategories: function(category, categories) {
+	var self = this.findSelf(category, categories);
+	if (self) {
+	    return self.children_count == 0 ? this.findParent(self, categories) : self.children;
+	}
+	return false;
+
+    },
+
+    findChildren: function(category) {
+	return category.children_count == 0 ? false : category.children;
+    },
 
   render: function() {
     var onClick = this.onClick.bind(this);
-    var categories = this.state.data.map(function(category){
+    var categories = this.state.currentCategories.map(function(category){
       return (<Category category={category} onUpdate={onClick}/>)
     })
 
