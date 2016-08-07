@@ -1,0 +1,29 @@
+.col-md-12
+  .page-header
+    h1.clearfix
+      | Размеры
+      .pull-right
+        = link_to "Создать", new_admin_color_path, class: 'btn btn-success'
+
+
+table.table.table-striped
+ thead
+   tr
+     th colspan='1' id
+     th colspan='1' = t(:code)
+     th colspan='8' = t(:color)
+     th
+       .pull-right
+         = t(:actions)
+ tbody
+   - if @colors.empty?
+     tr
+       th colspan=12 = t(:not_found)
+   - @colors.each do |color|
+     tr
+       td colspan='1' = color.id
+       td colspan='1' = color.code
+       td style="background-color: #{color.code}" colspan='8'
+       td.clearfix
+         .pull-right
+           = render partial: 'buttons_group', locals: { color: color }

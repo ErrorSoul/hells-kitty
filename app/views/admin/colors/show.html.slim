@@ -1,0 +1,19 @@
+.col-md-12
+  .page-header
+    h1.clearfix
+      | Цвет  #
+      = @color.id
+
+  .col-md-6.center-block
+    .panel.panel-default
+      .panel-heading Размер
+      .panel-body
+        form.form-horizontal
+          .form-group
+            label.col-sm-2.control-label = @color.code
+            .col-sm-10.color-field style="background-color: #{@color.code}"
+
+    form.form-horizontal
+
+      = link_to t(:back), admin_colors_path, class: 'btn btn-primary'
+      = link_to t(:edit), edit_admin_color_path(@color), class: 'btn btn-warning'

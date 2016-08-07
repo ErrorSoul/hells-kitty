@@ -66,6 +66,12 @@
                 p#input_label.relation-position = t(:choose_file)
                 = f.file_field :asset, multiple: true, name: "product_attachments[asset][]", class: 'input-hide files form-control',  "required": ""
 
+    .panel.panel-default
+      .panel-heading = t(:colors)
+      .panel-body
+        - @product_colors = @product.product_colors
+        - @colors = Color.all
+        = react_component('ColorForm', {product_colors: @product_colors,  colors: @colors})
 
     .panel.panel-default
       .panel-heading = t(:sizes)

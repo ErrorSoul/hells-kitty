@@ -1,0 +1,12 @@
+.form-group class=has_error(@color, :name)
+  = f.label t(:color), class: 'col-sm-2 control-label'
+  .col-sm-10 ng-init="color=#{@color.to_json}"
+    = f.color_field :code,  class: 'form-control', placeholder: t(:color)
+
+
+.actions.clearfix
+  .pull-right
+    = link_to "Назад", admin_colors_path, class: "btn btn-primary"
+    button.btn.btn-success[
+      type="submit"
+    ] Сохранить цвет
