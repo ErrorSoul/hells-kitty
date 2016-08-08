@@ -15,9 +15,18 @@ ru:
         updated: Размер успешно обновлен
         deleted: Размер успешно удален
       fail:
-        deleted: Не удалось удалить этот товар
+        deleted: Не удалось удалить этот размер
+    color:
+      success:
+        created: Цвет успешно создан
+        updated: Цвет успешно обновлен
+        deleted: Цвет успешно удален
+      fail:
+        deleted: Не удалось удалить этот цвет
   activerecord:
     attributes:
+      look:
+        name: Название
       product:
         marking: 'Артикул'
         name: 'Название'

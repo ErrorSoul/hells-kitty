@@ -29,7 +29,12 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def show
-    @product = Product.includes(:product_attachments, :category).find params[:id]
+    @product = Product.includes(
+      :product_attachments,
+      :category,
+      product_sizes: :size,
+      product_colors: :colors
+    ).find params[:id]
   end
 
   def edit
