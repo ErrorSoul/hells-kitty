@@ -13,11 +13,13 @@
 
    .col-sm-12
      .panel.panel-default
-       .panel-heading= t(:look)
+       .panel-heading= t(:look_choose)
        .panel-body
          .form-group
            - (0..3).each do |n|
-             = react_component('LookInput', {index: n})
+             = react_component('LookAutoComplete', {index: n})
+
+
 
 
    .col-sm-12
