@@ -23,8 +23,12 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :product_attachments, allow_destroy: true
 
   has_many :product_sizes, dependent: :destroy
+  has_many :product_colors, dependent: :destroy
   has_many :sizes, through: :product_sizes
   accepts_nested_attributes_for :product_sizes, allow_destroy: true,
     reject_if: proc { |attrs| attrs['name'].blank? || attrs['value'].blank? }
+  has_many :colors, through: :product_colors
+  accepts_nested_attributes_for :product_sizes, allow_destroy: true
+  accepts_nested_attributes_for :product_colors, allow_destroy: true
 
 end

@@ -1,0 +1,4 @@
+.btn-group(aria-label="Basic example" role="group")
+  = link_to t(:show), admin_look_url(look), class: 'btn btn-default'
+  = link_to t(:edit), edit_admin_look_url(look), class: 'btn btn-default'
+  = link_to t(:destroy), admin_look_url(look), method: :delete, class: 'btn btn-default', data: {confirm: t(:are_you_sure)  }

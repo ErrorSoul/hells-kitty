@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :categories
     resources :products
     resources :sizes
+    resources :colors
+    resources :looks
   end
 
   namespace :api do

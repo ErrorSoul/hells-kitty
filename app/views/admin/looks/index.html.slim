@@ -1,0 +1,30 @@
+.col-md-12
+  .page-header
+    h1.clearfix
+      | Looks
+      .pull-right
+        = link_to "Создать", new_admin_look_path, class: 'btn btn-success'
+
+
+table.table.table-striped
+ thead
+   tr
+     th colspan='1' id
+     th colspan='1' = t(:name)
+     th colspan='8'
+
+     th
+       .pull-right
+         = t(:actions)
+ tbody
+   - if @looks.empty?
+     tr
+       th colspan=12 = t(:not_found)
+   - @looks.each do |look|
+     tr
+       td colspan='1' = look.id
+       td colspan='1' = look.name
+       td colspan='8'
+       td.clearfix
+         .pull-right
+           = render partial: 'buttons_group', locals: { look: look }

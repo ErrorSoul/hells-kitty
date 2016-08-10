@@ -1,0 +1,4 @@
+.btn-group(aria-label="Basic example" role="group")
+  = link_to t(:show), admin_color_url(color), class: 'btn btn-default'
+  = link_to t(:edit), edit_admin_color_url(color), class: 'btn btn-default'
+  = link_to t(:destroy), admin_color_url(color), method: :delete, class: 'btn btn-default', data: {confirm: t(:are_you_sure)  }

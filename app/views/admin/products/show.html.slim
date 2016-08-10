@@ -51,6 +51,14 @@
                 span.label.label-success.category-label = t convert_boolean(@product.public)
 
 
+    .panel.panel-default
+      .panel-heading = t(:colors)
+      .panel-body
+
+        .col-md-12.sizes-block
+          - @product.product_colors.each do |pc|
+            .col-md-4
+              .col-md-12.color-box style="background-color: #{pc.color.code}"
 
     .panel.panel-default
       .panel-heading = t(:sizes)
