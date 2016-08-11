@@ -9,4 +9,6 @@ $(document).ready(function(){
 	    .toggleClass('hovered');
     })
 
+    console.log('dssfsdafas')
+
  });
