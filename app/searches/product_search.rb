@@ -8,7 +8,7 @@ class ProductSearch < Searchlight::Search
   end
 
   def search_name
-    query.where('products.name ilike :name', name: name.to_s)
+    query.where('products.name ilike :name', name: "%#{name.to_s}%")
   end
 
   def search_marking

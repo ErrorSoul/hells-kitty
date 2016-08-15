@@ -33,7 +33,7 @@ class Admin::ProductsController < Admin::BaseController
       :product_attachments,
       :category,
       product_sizes: :size,
-      product_colors: :colors
+      product_colors: :color
     ).find params[:id]
   end
 
@@ -54,6 +54,15 @@ class Admin::ProductsController < Admin::BaseController
       flash[:error] = @product.errors.full_messages.join('<br/>').html_safe
       render :edit
     end
+  end
+
+  def search
+    @search = ProductSearch.new(search_params)
+    @products = @search.results.includes(:product_attachments, :category)
+                .as_json(include: [:product_attachments, :category, :product_sizes])
+                .first(7)
+    render json: {products: @products}
+
   end
 
   private
