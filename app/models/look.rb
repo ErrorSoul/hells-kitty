@@ -13,7 +13,8 @@
 #
 
 class Look < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, :product_id_0, :product_id_1, :product_id_2, :product_id_3, presence: true
+  validates_uniqueness_of :product_id_0, :product_id_1, :product_id_2, :product_id_3, scope: [:id]
 
   def products
     Product.where(id:

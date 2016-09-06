@@ -1,20 +1,33 @@
 @LookInput = React.createClass
   getInitialState: ->
     name: @props.name || ''
+    product: @props.product || {}
 
   handleSubmit: (e)->
     console.log('target value', e.target.value)
     @setState name: e.target.value
     @props.changeResults(e.target.value)
 
+  getProductId: ->
+    console.log('product', @state.product)
+    if @state.product.name != undefined
+      @state.product.id
+    else
+      ""
 
   render: ->
-    React.DOM.input
-      onInput: @handleSubmit
-      name: "look[product_id_#{@props.index}]"
-      placeholder: 'Название'
-      className: 'form-control'
-      value: @state.name
+    React.DOM.div null,
+      React.DOM.input
+        onInput: @handleSubmit
+        placeholder: 'Название'
+        className: 'form-control'
+        value: @state.name
+      React.DOM.input
+        type: 'hidden'
+        id:   "look[product_id_#{@props.index}]"
+        name: "look[product_id_#{@props.index}]"
+        value: @getProductId()
+
 
 
 @LookObject = React.createClass
@@ -29,25 +42,20 @@
 
   render: ->
       console.log('props s query', @props.query)
-      React.DOM.li
-        className: 'media'
+      React.DOM.div
+        className: 'row look-slot'
         onClick: @handleSubmit
         React.DOM.div
-          className:"media-left"
-          React.DOM.a
-            href:"#"
-            React.DOM.img
-              className: "media-object img-responsive"
-              src: @props.product.product_attachments[0].asset.url
-
-
-        React.DOM.div
-          className: 'media-body'
-          React.DOM.h4
+          className: 'col-md-8'
+          React.DOM.p
             name: @props.name
             className: 'media-heading'
             dangerouslySetInnerHTML: {__html: @BolderFilter(@props.name, @props.query)}
-
+        React.DOM.div
+          className: 'col-md-4'
+          React.DOM.img
+            className: 'img-responsive img-thumbnail'
+            src:  @props.product.product_attachments[0].asset.url
 
 @LookList = React.createClass
   getInitialState: ->
@@ -58,8 +66,8 @@
   render: ->
     React.DOM.div
       className: 'col-md-12'
-      React.DOM.ul
-        className: 'media-list'
+      React.DOM.div
+        className: 'row'
         if @state.hide
           for product, index in @props.results
             React.createElement LookObject,
@@ -72,10 +80,10 @@
 
 @LookAutoComplete = React.createClass
   getInitialState: ->
-    results: []
+    results: @props.results || []
     name: ''
     query: ''
-    product: {}
+    product: @props.results || {}
 
   onChangeResults: (name)->
     if name.length >= 3
@@ -99,7 +107,26 @@
   render: ->
     React.DOM.div
       className: 'col-sm-3'
-      React.createElement LookInput, ref: "lookInput", index: @props.index, key: @props.index, changeResults: @onChangeResults, name: @state.name, product: @state.product
+      React.DOM.div
+        className: 'row'
+        React.DOM.div
+          className: 'col-md-12 look-preview'
+          if @state.product.name is undefined
+            React.DOM.img
+              src: "http://placehold.it/265x360"
+              className: 'img-responsive img-thumbnail'
+          else
+            React.DOM.img
+              src: @state.product.product_attachments[0].asset.url
+              className: 'img-responsive img-thumbnail'
+
+      React.createElement LookInput,
+        ref: "lookInput",
+        index: @props.index,
+        key: @props.index,
+        changeResults: @onChangeResults,
+        name: @state.product.name,
+        product: @state.product
       React.createElement LookList, ref: 'lookList', results: @state.results, changeName: @onChangeName, query: @state.query
 
 

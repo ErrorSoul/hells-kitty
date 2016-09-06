@@ -1,19 +1,22 @@
 .col-md-12
   .page-header
     h1.clearfix
-      | Цвет  #
-      = @color.id
+      | Look  #
+      = @look.id
 
-  .col-md-6.center-block
+  .col-md-12.center-block
     .panel.panel-default
-      .panel-heading Цвет
+      .panel-heading Look
       .panel-body
         form.form-horizontal
           .form-group
-            label.col-sm-2.control-label = @color.code
-            .col-sm-10.color-field style="background-color: #{@color.code}"
+            label.col-sm-2.control-label = t(:name)
+            .col-sm-10.color-field = @look.name
 
-    form.form-horizontal
+        form.form-horizontal
+          - @look.products.each do |product|
+            .col-md-3
+              = image_tag(product.product_attachments.first.asset.url, class: 'img-responsive img-thumbnail')
 
-      = link_to t(:back), admin_colors_path, class: 'btn btn-primary'
-      = link_to t(:edit), edit_admin_color_path(@color), class: 'btn btn-warning'
+    = link_to t(:back), admin_looks_path, class: 'btn btn-primary'
+    = link_to t(:edit), edit_admin_look_path(@look), class: 'btn btn-warning'

@@ -10,7 +10,8 @@ $(document).ready(function(){
     setInterval(function() {
          if(i == 7) i=0;
 
-         $('#logo').attr('src', 'main/img/logo2/' + (++i) + '.png' );
+
+         $('#logo').attr('src', '/logo2/' + (++i) + '.png' );
     }, 3000);
 
     $(window).scroll(function() {

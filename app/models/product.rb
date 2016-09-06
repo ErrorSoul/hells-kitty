@@ -31,4 +31,10 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :product_sizes, allow_destroy: true
   accepts_nested_attributes_for :product_colors, allow_destroy: true
 
+  def as_json(options)
+    super(
+      include: [:product_attachments]
+    )
+  end
+
 end
