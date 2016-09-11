@@ -1,6 +1,8 @@
 class Admin::ProductsController < Admin::BaseController
 
   def index
+    @categories = Category.roots.includes(children: :children)
+                          .as_json(include: {children: {include: :children}})
     @search = ProductSearch.new(search_params)
     @products = @search.results.includes(:product_attachments, :category)
   end
@@ -8,6 +10,8 @@ class Admin::ProductsController < Admin::BaseController
   def new
     @product = Product.new
     @product_attachment = @product.product_attachments.build
+    @product_colors = @product.product_colors
+    @colors = Color.all
   end
 
   def create
@@ -25,12 +29,18 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def show
-    @product = Product.includes(:product_attachments, :category).find params[:id]
-
+    @product = Product.includes(
+      :product_attachments,
+      :category,
+      product_sizes: :size,
+      product_colors: :color
+    ).find params[:id]
   end
 
   def edit
     @product = Product.includes(:product_attachments).find params[:id]
+    @product_colors = @product.product_colors
+    @colors = Color.all
     diff = 5 - @product.product_attachments.size
     diff.times { @product.product_attachments.build } if diff > 0
   end
@@ -46,13 +56,24 @@ class Admin::ProductsController < Admin::BaseController
     end
   end
 
+  def search
+    @search = ProductSearch.new(search_params)
+    @products = @search.results.includes(:product_attachments, :category)
+                .as_json(include: [:product_attachments, :category, :product_sizes])
+                .first(7)
+    render json: {products: @products}
+
+  end
+
   private
 
   def product_params
     params.require(:product).permit(
       :name, :price, :marking, :category_id, :public,
       product_attachments_attributes: [:id, :product_id, :asset, :_destroy],
-      product_sizes_attributes: [:id, :product_id, :size_id, :value, :_destroy]
+      product_sizes_attributes: [:id, :product_id, :size_id, :value, :_destroy],
+      product_colors_attributes: [:id, :product_id, :color_id, :_destroy]
+
     )
   end
 

@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   namespace :admin do
     resource  :dashboard, only: :show
     resources :categories
-    resources :products
+    resources :products do
+      post :search, on: :collection
+    end
     resources :sizes
+    resources :colors
+    resources :looks
   end
 
   namespace :api do

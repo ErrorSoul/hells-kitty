@@ -1,5 +1,14 @@
 # -*- coding: utf-8 -*-
 namespace :db do
+  desc 'populate && seeds'
+  task populate: :environment do
+    Rake::Task["db:drop"].invoke
+    Rake::Task["db:create"].invoke
+    Rake::Task["db:migrate"].invoke
+    Rake::Task["db:seed"].invoke
+    Rake::Task["db:create_categories"].invoke
+  end
+
   desc 'populate categories'
   task create_categories: :environment do
     categories_array =

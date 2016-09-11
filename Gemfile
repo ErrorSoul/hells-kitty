@@ -9,6 +9,10 @@ gem 'therubyracer'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'magnific-popup-rails', '~> 1.1.0'
+# react.js
+gem 'react-rails'
+# underscore 
+gem 'underscore-rails'
 
 # See: https://github.com/pitr/angular-rails-templates/issues/97
 gem 'sprockets'
@@ -51,9 +55,6 @@ gem 'batch_factory', github: 'bluefox-international/batch-factory', tag: 'v0.1.0
 gem 'carrierwave'
 gem 'easy-s3'
 gem "fog"
-
-# Search
-gem 'searchlight'
 
 group :development, :test  do
   gem 'thin'

@@ -1,38 +1,97 @@
-nav.navbar.navbar-default.navbar-fixed-top
-  .container-fluid
-    /! Brand and toggle get grouped for better mobile display
-    .navbar-header
-      .navbar-toggle.collapsed
-        span
-          = fa_icon 'search'
-      button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand href="#"  Brand
-    /! Collect the nav links, forms, and other content for toggling
+/![if lt IE 7]
+  | <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p
+/! open/close
+header
+  /! Nav
+  .pre_menu
+    .container
+      .row
+        .pre_block.phone_block.col-lg-4.col-md-4.col-sm-4.col-xs-6
+          a href="#"  8 (495) 123 12 32
+        .pre_block.text-logo_block.col-lg-4.col-md-4.col-sm-4.col-xs-4
+          a href="/"
+            | "Kitty's Hell"
+        .pre_block.reg_block.col-lg-4.col-md-4.col-sm-4.col-xs-6
+          a href="#"  Вход
+          a href="#"  Регистрация
+  nav
+    .container
+      .row
+        .burger_menu
+          span.burger_item
+          span.burger_item
+          span.burger_item
+        .navbar-brand
+          a href="/"
+            img#logo src="logo2/1.png" style='width: 200px'
+        ul.nav.navbar-nav
+          li
+            a.dropdown-toggle href="#"  Новинки
 
-
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      ul.nav.navbar-nav
-        li
-          a href="#"
-            span.nav-link-span
-              | Новинки
-              span.before-style
-        - @categories.each do |category|
-
-          li.dropdown
-            a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
-
-              span.nav-link-span
+          - @categories.each do |category|
+            li.dropdown
+              a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
                 = category.name
-                span.before-style
+              ul.dropdown-menu
+                - category.children.each do |child|
+                  li
+                    = link_to child.name, "#"
 
 
-            ul.dropdown-menu.hovered-menu
-              - category.children.each do |child|
-                li
-                  a(href="#")
-                    p.underline-text = child.name
+          li
+            a.dropdown-toggle href="#"  Блог
+        ul.nav.navbar-nav.navbar-right
+          li
+            a href="#"
+              span.glyphicon.glyphicon-search aria-hidden="true"
+          li
+            a href="list.html"
+              span.glyphicon.glyphicon-heart aria-hidden="true"
+          li
+            a href="cart.html"
+              span.glyphicon.glyphicon-shopping-cart aria-hidden="true"
+
+section.main_section.main_page
+  .container
+    .col-lg-6.col-md-6.col-sm-12.col-xs-12.first_main_content.main_content
+      .block_content
+        a href="#"
+          img alt="image" src="main_img1.jpg" width="100%" /
+        h3 Первая ссылка
+    .col-lg-6.col-md-6.col-sm-12.col-xs-12.second_main_content.main_content
+      .block_content
+        a href="#"
+          img alt="image" src="main_img1.jpg" width="100%" /
+        h3 Вторая ссылка
+    .col-lg-6.col-md-6.col-sm-12.col-xs-12.third_main_content.main_content
+      .block_content
+        a href="#"
+          img alt="image" src="main_img1.jpg" width="100%" /
+        h3 Третья ссылка
+
+footer
+  .col-lg-5.col-md-5.col-sm-12.col-xs-12.text-center
+    | Copyrights &copy; 2016 All Rights Reserved by Kitty's Hell.
+  .col-lg-7.col-md-7.col-sm-12.col-xs-12.footer-menu
+    a href="index.html" Главная
+    | /
+    a href="#" Новинки
+    | /
+    a href="#" Одежда
+    | /
+    a href="#" Обувь
+    | /
+    a href="#" Аксессуары
+    | /
+    a href="#"  Vintage
+  .col-lg-12.col-md-12.col-sm-12.col-xs-12.social_icons
+    a href="#" title="Facebook"
+      i.fa.fa-facebook aria-hidden="true"
+    a href="#" title="Twitter"
+      i.fa.fa-twitter aria-hidden="true"
+    a href="#" title="Vkontakte"
+      i.fa.fa-vk aria-hidden="true"
+    a href="#" title="Snapchat"
+      i.fa.fa-snapchat-ghost aria-hidden="true"
+    a href="#" title="Periscope"
+      i.fa.fa-dot-circle-o aria-hidden="true"

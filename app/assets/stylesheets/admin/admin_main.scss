@@ -238,7 +238,7 @@ input#exampleInputName2 {
 
 .super-class {
    font-weight: bold;
-    font-size: 2em;
+    font-size: 1em;
     color: red;
 }
 
@@ -400,3 +400,41 @@ h4.great {
 .btn-create {
   border: 3px dashed white;
   }
+
+
+.color-field {
+  height: 150px;
+  width: 150px;
+  margin-left: 100px;
+  }
+
+.color-box {
+  height: 100px;
+  width: 100%;
+  }
+
+
+.look-slot {
+    transition: all 0.7s ease;
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    margin-top: 10px;
+    background: #F2F2F2;
+    padding: 10px;
+    box-shadow: 0px 0px 5px #CCC;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #9BA477;
+      color: white;
+      font-size: 20px;
+      height: auto;
+
+      }
+}
+
+.look-preview {
+  margin-bottom: 10px;
+  min-height: 300px;
+}
