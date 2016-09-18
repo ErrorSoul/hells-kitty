@@ -15,15 +15,14 @@ html.no-js
 
     meta content="" name="description" /
     meta content="" name="keywords" /
-    
 
     = stylesheet_link_tag 'main/application', media: 'all'
 
     = csrf_meta_tags
 
   body
-    .row
-      .container-fluid
-        = yield
+    /.row
+    /  .container-fluid
+    = yield
     .javascripts
       = javascript_include_tag 'main/application'

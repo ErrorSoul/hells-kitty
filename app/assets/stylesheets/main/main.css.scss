@@ -1,0 +1,121 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic);
+//
+//
+// body {
+//   font-family: Cuprum;
+//   }
+//
+// .dropdown-menu {
+//
+//
+//   li >  a >  p {
+//     position: relative;
+//     color: #000;
+//     text-decoration: none;
+//   }
+//
+//   li >  a >  p:hover {
+//     color: #000;
+//   }
+//
+//   li >  a >  p:before {
+//     content: "";
+//     position: absolute;
+//     width: 0%;
+//     height: 2px;
+//     bottom: 0;
+//     left: 0;
+//     background-color: #E27070;
+//     visibility: hidden;
+//     -webkit-transition: all 0.5s ease-in-out 0s;
+//     transition: all 0.5s ease-in-out 0s;
+//     -moz-transition: all 0.5s ease-in-out 0s;
+//   }
+//
+//   li > a >  p:hover:before {
+//     visibility: visible;
+//     width: 100%;
+//
+//   }
+// }
+//
+//
+// .dropdown-menu > li > a:hover {
+//   background-color: white;
+//   }
+//
+// p.underline-text {
+//   display: inline-block;
+//   text-transform: uppercase;
+//   font-size: 14px;
+//   }
+//
+// @media (min-width: 979px) {
+//   ul.nav li.dropdown:hover > ul.dropdown-menu {
+//     display: block;
+//   }
+//
+//   .dropdown-menu {
+//     left: 50%;
+//     right: auto;
+//     text-align: left;
+//     transform: translate(-50%, 0);
+//   }
+// }
+//
+// .navbar-default .navbar-nav > li > a {
+//     color: #131010;
+//     text-transform: uppercase;
+// }
+//
+// .navbar-default {
+//   background-color: white;
+// }
+//
+//
+// .navbar-default .navbar-nav > .open > a,
+// .navbar-default .navbar-nav > .open > a:hover,
+// .navbar-default .navbar-nav > .open > a:focus {
+//   background-color: white;
+//   }
+//
+// .nav-link-span {
+//    position: relative;
+//    color: #000;
+//    text-decoration: none;
+//    font-size: 16px;
+// }
+//
+// .nav-link-span:before, .before-style  {
+//   content: "";
+//   position: absolute;
+//   width: 0%;
+//   height: 2px;
+//   bottom: 0;
+//   left: 0;
+//   background-color: #000 ;
+//   visibility: hidden;
+//   -webkit-transition: all 0.5s ease-in-out 0s;
+//   transition: all 0.5s ease-in-out 0s;
+//   -moz-transition: all 0.5s ease-in-out 0s;
+//   }
+//
+// .nav-link-span:hover:before, .before-style.hovered {
+//     visibility: visible;
+//     width: 100%;
+//
+//   }
+//
+// .navbar-default .navbar-brand {
+//     color: black;
+// }
+//
+//
+// .thumb {
+//     height: 75px;
+//     border: 1px solid #000;
+//     margin: 10px 5px 0 0;
+//   }
