@@ -22,15 +22,6 @@ before_fork do |server, worker|
   # Перед тем, как создать первый рабочий процесс, мастер отсоединяется от базы.
   defined?(ActiveRecord::Base) and
   ActiveRecord::Base.connection.disconnect!
-
-  # Ниже идет магия, связанная с 0 downtime deploy.
-  if File.exists?(old_pid) && server.pid != old_pid
-    begin
-      Process.kill("QUIT", File.read(old_pid).to_i)
-    rescue Errno::ENOENT, Errno::ESRCH
-      # someone else did our job for us
-    end
-  end
 end
 
 after_fork do |server, worker|
