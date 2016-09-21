@@ -85,4 +85,3 @@ reopen-logs)
   exit 1
   ;;
 esac
-Contact GitHub API Training Shop Blog About
