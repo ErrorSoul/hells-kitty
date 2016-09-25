@@ -7,6 +7,7 @@ namespace :deploy do
     puts "I M WORKING "
     puts "I M WORKING "
     puts "I M WORKING "
+    puts "#{ENV}"
     unless `git rev-parse HEAD` == `git rev-parse origin/master`
       puts 'WARNING: HEAD is not the same as origin/master'
       puts 'Run `git push` to sync changes.'
