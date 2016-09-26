@@ -9,6 +9,7 @@ gem 'therubyracer'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'magnific-popup-rails', '~> 1.1.0'
+
 # react.js
 gem 'react-rails'
 # underscore
@@ -21,7 +22,7 @@ gem 'sprockets'
 gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
-
+gem 'bourbon'
 # Markup
 gem 'slim'
 
@@ -49,7 +50,6 @@ gem 'axlsx'
 gem 'zip-zip'
 gem 'writeexcel'
 gem 'batch_factory', github: 'bluefox-international/batch-factory', tag: 'v0.1.0'
-
 
 # File Uploader
 gem 'carrierwave'

@@ -1,0 +1,57 @@
+@import "bourbon";
+$asset-pipeline: true;
+
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+html, button, input, select, textarea {
+	font-family: 'Cuprum', sans-serif;
+	outline: none;
+}
+
+body {
+	margin: 0;
+	margin-top: 80px;
+	font-family: 'Cuprum', sans-serif;
+	font-weight: bold;
+	background: #fff;
+	color: #000;
+	outline: none;
+	line-height: 1.2;
+	font-size: 16px;
+}
+
+/* ==========================================================================
+Links
+========================================================================== */
+
+/*
+* Addresses `outline` inconsistency between Chrome and other browsers.
+*/
+
+a, a:hover, button, button:hover {
+	text-decoration: none;
+	outline: none;
+
+	-moz-transition: color 0.2s ease-out;
+	-o-transition: color 0.2s ease-out;
+	-webkit-transition: color 0.2s ease-out;
+	transition: color 0.2s ease-out;
+}
+
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+/*
+* Improves readability when focused and also mouse hovered in all browsers.
+*/
+
+a:active, a:hover {
+	outline: none;
+	text-decoration: none;
+}
