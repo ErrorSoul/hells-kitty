@@ -28,7 +28,7 @@ namespace :setup do
       execute "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
     end
   end
-  before :deploy, 'setup:symlink_config'
+  #before :deploy, 'setup:symlink_config'
 end
 
 
