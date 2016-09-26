@@ -8,8 +8,9 @@ listen "#{root}/tmp/sockets/unicorn.sock", backlog: 64
 
 worker_processes 2
 timeout 30
-preload_app true
-
+#preload_app true
+GC.respond_to?(:copy_on_write_friendly=) and
+  GC.copy_on_write_friendly = true
 
 before_exec do |server|
   ENV["BUNDLE_GEMFILE"] = "#{root}/Gemfile"
