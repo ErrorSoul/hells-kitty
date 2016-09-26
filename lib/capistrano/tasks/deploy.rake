@@ -23,9 +23,8 @@ namespace :deploy do
       end
     end
   end
-
   before :deploy, 'deploy:check_revision'
-  after "deploy:setup", "deploy:setup_config"
+
   after :deploy, 'deploy:restart'
   after :rollback, 'deploy:restart'
 end

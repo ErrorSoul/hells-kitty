@@ -28,7 +28,10 @@ namespace :setup do
       execute "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
     end
   end
+  after :deploy, 'setup:symlink_config'
 end
+
+
 
 namespace :logs do
   desc "tail rails logs"
