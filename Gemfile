@@ -12,8 +12,7 @@ gem 'magnific-popup-rails', '~> 1.1.0'
 
 # react.js
 gem 'react-rails'
-
-# underscore 
+# underscore
 gem 'underscore-rails'
 
 # See: https://github.com/pitr/angular-rails-templates/issues/97
@@ -75,7 +74,13 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'rails_12factor', group: :production
+group :development do
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rbenv', '~> 2.0.2'
+end
+
 gem 'unicorn', group: :production
 
 group :doc do
