@@ -4,9 +4,6 @@
     .block_content {
         width: 390px;
         margin: 0 auto;
-        moz-transform: none;
-        -o-transform: none;
-        -webkit-transform: none;
         transform: none;
     }
     .first_main_content {
@@ -42,13 +39,7 @@
         height: 3px;
         margin: 0 0 5px;
         background: #000;
-        -moz-transition-property: all;
-        -o-transition-property: all;
-        -webkit-transition-property: all;
         transition-property: all;
-        -moz-transition-duration: 0.2s;
-        -o-transition-duration: 0.2s;
-        -webkit-transition-duration: 0.2s;
         transition-duration: 0.2s;
     }
     nav {
@@ -65,8 +56,6 @@
         top: 0;
         right: 15px;
         margin: 0;
-        -webkit-transition: none;
-        -o-transition: none;
         transition: none;
     }
     nav .navbar-right li {
@@ -85,8 +74,6 @@
         z-index: 9999;
         width: 100px;
         display: block!important;
-        -webkit-transition: none;
-        -o-transition: none;
         transition: none;
     }
     .navbar-brand a .scroll-logo {
@@ -163,7 +150,7 @@
         margin: 15px 5px;
     }
     .pre_menu a {
-        font-size: 11px;
+        font-size: 14px;
     }
 }
 @media screen and (max-width:465px) {

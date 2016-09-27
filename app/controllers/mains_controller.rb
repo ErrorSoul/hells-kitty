@@ -5,4 +5,8 @@ class MainsController < ApplicationController
     @categories = Category.roots.includes(:children)
   end
 
+  def list
+    @categories = Category.roots.includes(:children)
+  end
+
 end

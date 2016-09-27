@@ -446,6 +446,7 @@ DEPENDENCIES
   angular-ui-bootstrap-rails
   angularjs-rails
   annotate (~> 2.6.5)
+  autoprefixer-rails
   awesome_nested_set
   axlsx
   batch_factory!

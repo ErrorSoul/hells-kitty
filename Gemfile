@@ -18,11 +18,12 @@ gem 'underscore-rails'
 # See: https://github.com/pitr/angular-rails-templates/issues/97
 gem 'sprockets'
 
-# Twitter Bootstrap
+# css
 gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'bourbon'
+gem 'autoprefixer-rails'
 # Markup
 gem 'slim'
 
