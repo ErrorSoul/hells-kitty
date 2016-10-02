@@ -57,8 +57,6 @@ nav a {
 	margin-left: 25px;
 	padding-top: 2px;
 	letter-spacing: 2px;
-	-webkit-transition: background-color, 0.2s;
-	-moz-transition: background-color, 0.2s;
 	transition: background-color, 0.2s;
 }
 .nav>li>a {
@@ -83,22 +81,18 @@ nav .container {
 }
 .navbar-brand a img {
 	width: 200px;
-	-webkit-transition: all .2s linear;
-	-o-transition: all .2s linear;
 	transition: all .2s linear;
 }
+
 /*.navbar-brand a img:hover {*/
-	/*moz-transform: rotate(360deg);*/
-	/*-o-transform: rotate(360deg);*/
-	/*-webkit-transform: rotate(360deg);*/
 	/*transform: rotate(360deg);*/
-	/*-webkit-transform-origin: center center;*/
 	/*transform-origin: center center;*/
 /*}*/
 
 //nav ul li {
 //	float: left;
 //}
+
 .sub_menu {
 	display: none;
 }
@@ -116,10 +110,6 @@ nav li:last-child .sub_menu li a {
 }
 .dropdown .span_active {
 	top: -6px;
-	-webkit-transform: rotate(90deg);
-	-moz-transform: rotate(90deg);
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-	-o-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
 .block_sub_menu {
@@ -156,7 +146,7 @@ Main_page
 	padding: 100px 0;
 }
 .main_section .container {
-	background: asset-url('bg_main.svg') no-repeat center center;;
+	//background: asset-url('bg_main.svg') no-repeat center center;
 	background-size: contain;
 }
 .first_main_content {
@@ -168,18 +158,10 @@ Main_page
 .block_content {
 	width: 390px;
 	margin: 0 auto;
-	moz-transform: rotate(15deg);
-	-o-transform: rotate(15deg);
-	-webkit-transform: rotate(15deg);
 	transform: rotate(15deg);
-	-webkit-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 }
 .block_content:hover {
-	moz-transform: rotate(0deg);
-	-o-transform: rotate(0deg);
-	-webkit-transform: rotate(0deg);
 	transform: rotate(0deg);
 }
 .block_content h3 {
@@ -316,9 +298,6 @@ Cart
 	text-transform: uppercase;
 	font-weight: 400;
 	font-size: 20px;
-	-moz-transition: background-color 0.2s ease-out;
-	-o-transition: background-color 0.2s ease-out;
-	-webkit-transition: background-color 0.2s ease-out;
 	transition: background-color 0.2s ease-out;
 }
 .sum-cart button:hover {
@@ -353,13 +332,7 @@ footer {
 	margin: 0 15px;
 }
 footer i {
-	-moz-transition: background-color 0.2s ease-out;
-	-o-transition: background-color 0.2s ease-out;
-	-webkit-transition: background-color 0.2s ease-out;
 	transition: background-color 0.2s ease-out;
-	-moz-transition: color 0.2s ease-out;
-	-o-transition: color 0.2s ease-out;
-	-webkit-transition: color 0.2s ease-out;
 	transition: color 0.2s ease-out;
 }
 .fa-facebook:hover {
@@ -380,5 +353,4 @@ footer i {
 
 .navbar-brand a .scroll-logo {
 	width: 150px;
-
 }
