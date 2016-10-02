@@ -9,4 +9,8 @@ class MainsController < ApplicationController
     @categories = Category.roots.includes(:children)
   end
 
+  def cart
+    @categories = Category.roots.includes(:children)
+  end
+
 end
