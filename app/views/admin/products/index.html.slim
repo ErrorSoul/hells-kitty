@@ -10,7 +10,9 @@
 
 
 .col-lg-12.col-xs-12
-  = react_component('CategoryList', { data: @categories, category: {id: 52} })
+  //= react_component("Category", { data: @categories, category: Category.first })
+  = react_component("CategoryList", { categories: @categories, category: {} })
+  //= react_component('CategoryList', { data: @categories, category: {id: 52} })
   .col-xs-3.form-search
 
     = form_for @search, url: admin_products_url, method: :get, class: 'form-horizontal' do |f|

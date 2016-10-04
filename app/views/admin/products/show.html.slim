@@ -58,7 +58,7 @@
         .col-md-12.sizes-block
           - @product.product_colors.each do |pc|
             .col-md-4
-              .col-md-12.color-box style="background-color: #{pc.color.code}"
+              .col-md-12.color-box style="background-color: #{pc.color.try(:code)}"
 
     .panel.panel-default
       .panel-heading = t(:sizes)
