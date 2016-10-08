@@ -8,6 +8,7 @@
     .panel.panel-default
       .panel-heading Товар
       .panel-body
+        h5 {{product.category_id}}
         .form-group[
           ng-init="product = #{@product.to_json}; items= #{Category.only_children_to_json}; find_item(product.category_id); "
             class=has_error(@product, :name)

@@ -88,8 +88,6 @@
   onChangeResults: (name)->
     if name.length >= 3
       $.post '/admin/products/search', { product_search: {name: name} }, (data) =>
-        console.log('data', data)
-        console.log('name', name)
         @setState {results: data.products, query: name}
         @refs.lookList.setState({hide: true})
     else

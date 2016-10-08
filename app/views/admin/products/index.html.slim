@@ -7,73 +7,27 @@
            = fa_icon "search"
          end
          = link_to t(:create), new_admin_product_url, class: 'btn btn-success btn-create'
+.col-xs-12
+  .col-xs-6
+    //= react_component('ProductList', {products: @products} )
+= react_component("CategoryList", { categories: @categories, category: {} , products: @products})
 
-
-.col-lg-12.col-xs-12
   //= react_component("Category", { data: @categories, category: Category.first })
-  = react_component("CategoryList", { categories: @categories, category: {} })
+
   //= react_component('CategoryList', { data: @categories, category: {id: 52} })
-  .col-xs-3.form-search
+  //.col-xs-3.form-search
 
-    = form_for @search, url: admin_products_url, method: :get, class: 'form-horizontal' do |f|
+    //= form_for @search, url: admin_products_url, method: :get, class: 'form-horizontal' do |f|
 
-      .form-group.col-xs-12.col-lg-5
-        = f.label t(:name), class: 'control-label col-xs-4'
-        .col-xs-8
-          = f.text_field :name, class: 'form-control'
-      .form-group.col-xs-12.col-lg-5
-        = f.label t(:marking), class: 'control-label col-xs-4'
-        .col-xs-8
-          = f.text_field :marking, class: 'form-control'
+      //.form-group.col-xs-12.col-lg-5
+        //= f.label t(:name), class: 'control-label col-xs-4'
+        //.col-xs-8
+          //= f.text_field :name, class: 'form-control'
+      //.form-group.col-xs-12.col-lg-5
+        //= f.label t(:marking), class: 'control-label col-xs-4'
+        //.col-xs-8
+          //= f.text_field :marking, class: 'form-control'
 
-      .form-group.col-xs-12.col-lg-2
-        = button_tag(type: 'submit' , class: 'btn btn-large btn-primary btn-circle') do
-          = fa_icon 'search'
-
-  .col-xs-9
-    - @products.in_groups_of(3) do |product_group|
-      .row.clearfix
-        - product_group.compact.each do |product|
-          .col-xs-12.col-lg-4
-            .thumbnail
-              = link_to admin_product_path(product), class: 'text-center product-link' do
-                = image_tag product.product_attachments.first.try(:asset).try(:url), class: 'img-responsive'
-              end
-
-              = link_to admin_product_path(product), class: 'text-center product-link' do
-                h4.text-center = product.name
-              end
-              p.text-center.category-line = product.category.breadcrumb
-
-            = link_to admin_product_path(product), class: 'text-center product-link' do
-              h4.text-center = product.name
-            end
-            p.text-center.category-line = product.category.try(:breadcrumb)
-
-              .caption
-                .col-xs-10.center-block
-                  .head-attr
-                    p.text-center
-                      = t(:marking)
-                  .body-attr
-                    p.text-center
-                      = product.marking
-                .col-xs-10.center-block.attr-block
-                  .head-attr
-                    p.text-center
-                      = t(:price)
-                  .body-attr
-                    p.text-center
-                      = product.price
-
-
-              .row
-                .col-xs-12
-                  - product.product_sizes.each.with_index(1) do |p_size, ind|
-                    .col-xs-6 class="#{'text-right' if ind.even?}"
-
-                      span.label.label-size
-                        = p_size.size.try(:name)
-                        | &nbsp
-                        span.badge.my-badge
-                          = p_size.try(:value)
+      //.form-group.col-xs-12.col-lg-2
+        //= button_tag(type: 'submit' , class: 'btn btn-large btn-primary btn-circle') do
+          //= fa_icon 'search'

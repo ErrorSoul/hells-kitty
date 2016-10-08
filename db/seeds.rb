@@ -22,7 +22,7 @@ PATH  = 'public/seed'
 
 entries = Dir.entries(PATH) - %w(. .. DS_Store)
 
-categories = Category.where.not(children_count: 0)
+categories = Category.only_children
 
 20.times do |n|
   p = Product.create!(

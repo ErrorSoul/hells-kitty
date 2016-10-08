@@ -11,4 +11,10 @@
 class Size < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  def as_json(options)
+    super(
+      except: [:created_at, :updated_at]
+    )
+  end
 end

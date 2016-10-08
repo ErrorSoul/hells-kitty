@@ -33,7 +33,13 @@ class Product < ActiveRecord::Base
 
   def as_json(options)
     super(
-      include: [:product_attachments]
+      include: {
+        product_sizes: { except: [:created_at, :updated_at] },
+        product_attachments: { except: [:created_at, :updated_at] },
+        category: {except: [:created_at, :updated_at], methods: :breadcrumb } ,
+        sizes: { except: [:created_at, :updated_at] },
+        colors: { except: [:created_at, :updated_at] }
+      }
     )
   end
 
