@@ -6,6 +6,7 @@ class ExchangesController < ApplicationController
         render text: "success\n"
       elsif params[:mode] == 'init'
         render texxt: "zip=yes\n"
+      end
     end
   end
 end
