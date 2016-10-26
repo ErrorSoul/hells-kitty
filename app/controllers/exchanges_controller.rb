@@ -21,4 +21,10 @@ class ExchangesController < ApplicationController
     end
     render text: "success\n"
   end
+
+  private
+
+  def some_params
+   params.permit(:filename)
+  end
 end
