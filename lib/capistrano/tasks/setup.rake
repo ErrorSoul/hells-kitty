@@ -18,6 +18,13 @@ namespace :setup do
     end
   end
 
+  desc 'show files in tmp.'
+  task :zips do
+    on roles(:app) do
+      execute "ls #{current_path}/tmp"
+    end
+  end
+
   desc 'Symlinks config files for Nginx and Unicorn.'
   task :symlink_config do
     on roles(:app) do
