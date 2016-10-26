@@ -1,7 +1,8 @@
 class ExchangesController < ApplicationController
   def index
     puts params.inspect
-    puts ""
-    render nothing: true
+    if params[:type] == 'catalog'
+      render nothing: true
+    end
   end
 end
