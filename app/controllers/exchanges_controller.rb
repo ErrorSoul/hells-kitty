@@ -5,7 +5,7 @@ class ExchangesController < ApplicationController
       if params[:mode] == 'checkauth'
         render text: "success\n"
       elsif params[:mode] == 'init'
-        render text: "zip=yes\n"
+        render text: "zip=yes\nfile_limit=2000\n"
       end
     end
   end
