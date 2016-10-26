@@ -9,4 +9,8 @@ class ExchangesController < ApplicationController
       end
     end
   end
+
+  def create
+    puts params.inspect
+  end
 end
