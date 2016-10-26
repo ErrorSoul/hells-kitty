@@ -1,7 +1,7 @@
 class ExchangesController < ApplicationController
   def index
     puts params.inspect
-    puts "#"
+    puts ""
     render nothing: true
   end
 end
