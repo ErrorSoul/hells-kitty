@@ -15,10 +15,10 @@ class ExchangesController < ApplicationController
 
   def create
     puts params.inspect
-    puts params[:filename].path
+    puts params[:filename]
     File.open("tmp/1c_#{Time.now}.zip", 'wb') do |f|
       f.write params[:filename]
     end
-    render text: "zip=yes\nfile_limit=2000\n"
+    render text: "success\n"
   end
 end
