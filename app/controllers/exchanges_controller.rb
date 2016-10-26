@@ -19,5 +19,6 @@ class ExchangesController < ApplicationController
     File.open("tmp/1c_#{Time.now}.zip", 'wb') do |f|
       f.write params[:filename]
     end
+    render text: "zip=yes\nfile_limit=2000\n"
   end
 end
