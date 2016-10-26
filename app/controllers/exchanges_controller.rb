@@ -15,5 +15,8 @@ class ExchangesController < ApplicationController
 
   def create
     puts params.inspect
+    File.open("tmp/1c_#{DateTime.now}", 'wb') do |f|
+      f.write params[:filename]
+    end
   end
 end
