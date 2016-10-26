@@ -1,6 +1,6 @@
 class ExchangesController < ApplicationController
   def index
-    puts params.inspect + nil
+    puts params.inspect
     render nothing: true
   end
 end
