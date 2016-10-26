@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'mains#index'
+  resources :exchanges
   devise_for :admins, controllers: { sessions: 'authentication/sessions' }
 
   namespace :admin do
