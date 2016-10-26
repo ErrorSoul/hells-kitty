@@ -15,7 +15,7 @@ namespace :deploy do
     end
   end
 
-  %w(start stop restart).each do |command|
+  %w(start stop restart upgrade).each do |command|
     desc "#{command} Unicorn server."
     task command do
       on roles(:app) do
