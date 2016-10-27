@@ -21,7 +21,7 @@ namespace :setup do
   desc 'show files in tmp.'
   task :zips do
     on roles(:app) do
-      execute "ls #{current_path}/tmp"
+      execute "ls -ahl #{current_path}/tmp"
     end
   end
 
