@@ -21,7 +21,7 @@ class ExchangesController < ApplicationController
     puts params.inspect
     puts some_params.inspect
     puts some_params[:filename].class
-    File.open("tmp/1c_#{Time.now}.zip", 'wb') do |f|
+    File.open("tmp/1c_#{12}.zip", 'wb') do |f|
       f.write request.body.read
     end
     render text: "success\n"
