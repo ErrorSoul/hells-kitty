@@ -15,6 +15,9 @@ class ExchangesController < ApplicationController
 
   def create
     puts request.inspect
+    puts '----------------------------------------------'
+    puts request.body
+    puts request.raw_post.inspect
     puts params.inspect
     puts some_params.inspect
     puts some_params[:filename].class
